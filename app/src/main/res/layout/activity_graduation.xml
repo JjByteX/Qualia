@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0D0D"
+    android:fadeScrollbars="true"
+    android:scrollbarStyle="insideOverlay">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="40dp"
+        android:paddingTop="80dp"
+        android:paddingBottom="120dp">
+
+        <TextView
+            android:id="@+id/txtGraduation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#F5F0E8"
+            android:textSize="16sp"
+            android:fontFamily="@font/lora"
+            android:lineSpacingExtra="12dp"
+            android:alpha="0"/>
+
+        <TextView
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="carry it with you"
+            android:textColor="#A89880"
+            android:textSize="13sp"
+            android:fontFamily="@font/lora"
+            android:letterSpacing="0.15"
+            android:alpha="0"
+            android:layout_marginTop="60dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

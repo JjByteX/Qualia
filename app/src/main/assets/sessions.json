@@ -1,0 +1,1359 @@
+[
+  {
+    "key": "session_001",
+    "theme": "Today",
+    "perspective": "Flat",
+    "closingLine": "You are here.",
+    "lines": [
+      { "text": "You woke up and the day started.", "isQuestion": false },
+      { "text": "You moved through it. Talked to people, or stood near them, which isn't the same thing.", "isQuestion": false },
+      { "text": "At some point you were outside. At some point you were not.", "isQuestion": false },
+      { "text": "Most of it ran without you deciding it.", "isQuestion": false },
+      { "text": "Now you're at the end of it, and it only exists as thought.", "isQuestion": false },
+      { "text": "What do you remember first from this morning?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_002",
+    "theme": "Attention",
+    "perspective": "Nine Days",
+    "closingLine": "Some of it didn't.",
+    "lines": [
+      { "text": "There are people on the street right now having the worst day of their life.", "isQuestion": false },
+      { "text": "Not dramatically.", "isQuestion": false },
+      { "text": "The specific kind of bad that doesn't show.", "isQuestion": false },
+      { "text": "You passed some of them today.", "isQuestion": false },
+      { "text": "The wind hit your face at some point.", "isQuestion": false },
+      { "text": "An orange that was slightly too ripe.", "isQuestion": false },
+      { "text": "A door you held for a person who didn't say anything.", "isQuestion": false },
+      { "text": "All of it arrived before you had a name for it.", "isQuestion": false },
+      { "text": "Press the back into whatever is behind you right now.", "isQuestion": false, "isObservation": true },
+      { "text": "Most of it got filed away.", "isQuestion": false },
+      { "text": "Some of it didn't.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_003",
+    "theme": "The Stranger You Were",
+    "perspective": "Eternal Sunshine",
+    "closingLine": "They got here without knowing they would.",
+    "lines": [
+      { "text": "Imagine finding a recording of yourself from a few years ago.", "isQuestion": false },
+      { "text": "Not a performance.", "isQuestion": false },
+      { "text": "You, talking.", "isQuestion": false },
+      { "text": "What you were certain of.", "isQuestion": false },
+      { "text": "What you were afraid of.", "isQuestion": false },
+      { "text": "The way your voice sounded when you didn't know anyone was listening.", "isQuestion": false },
+      { "text": "You probably wouldn't fully recognize that person.", "isQuestion": false },
+      { "text": "They weren't wrong.", "isQuestion": false },
+      { "text": "...older.", "isQuestion": false },
+      { "text": "Listen for a sound in here. Just listen.", "isQuestion": false, "isObservation": true },
+      { "text": "That earlier you got here somehow.", "isQuestion": false },
+      { "text": "Became this.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_004",
+    "theme": "Tiredness",
+    "perspective": "Flat",
+    "closingLine": "You've been on for a while.",
+    "lines": [
+      { "text": "There's a tiredness that isn't from work.", "isQuestion": false },
+      { "text": "It comes from being on.", "isQuestion": false },
+      { "text": "From having a face that functions in public.", "isQuestion": false },
+      { "text": "From knowing what to say and when to say it and saying it anyway.", "isQuestion": false },
+      { "text": "From monitoring how it's going while it's going.", "isQuestion": false },
+      { "text": "That kind doesn't sleep off.", "isQuestion": false },
+      { "text": "Let the jaw drop slightly. Let the teeth part.", "isQuestion": false, "isObservation": true },
+      { "text": "You've been on for a while.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_005",
+    "theme": "Small Things",
+    "perspective": "Soul",
+    "closingLine": "It spun. That was the whole thing.",
+    "lines": [
+      { "text": "I used to think there had to be a design to it.", "isQuestion": false },
+      { "text": "A point. A spot you could point at and say: there.", "isQuestion": false },
+      { "text": "But then I watched a seed come off a tree once.", "isQuestion": false },
+      { "text": "It didn't go anywhere in particular.", "isQuestion": false },
+      { "text": "It spun for a bit and landed.", "isQuestion": false },
+      { "text": "That was it.", "isQuestion": false },
+      { "text": "Look at the hands. Turn them over once.", "isQuestion": false, "isObservation": true },
+      { "text": "Did anything happen today?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_006",
+    "theme": "Noise",
+    "perspective": "Flat",
+    "closingLine": "The gap after it.",
+    "lines": [
+      { "text": "There has been a lot of information today.", "isQuestion": false },
+      { "text": "All of it arriving uninvited.", "isQuestion": false },
+      { "text": "An opinion. A number. A notification addressed to another person's day. Noise looking for somewhere to land.", "isQuestion": false },
+      { "text": "None of it is here right now.", "isQuestion": false },
+      { "text": "Listen for the furthest sound you can find from where you are.", "isQuestion": false, "isObservation": true },
+      { "text": "There's whatever that was.", "isQuestion": false },
+      { "text": "And the gap after it.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_007",
+    "theme": "Traces",
+    "perspective": "Nine Days",
+    "closingLine": "Still moving around.",
+    "lines": [
+      { "text": "You use words you didn't come up with.", "isQuestion": false },
+      { "text": "You make a face when you're thinking that you learned from watching another person make it.", "isQuestion": false },
+      { "text": "How you laugh — that started in someone else's laugh.", "isQuestion": false },
+      { "text": "The people who gave you those are not in the room.", "isQuestion": false },
+      { "text": "Some of them you haven't spoken to in years.", "isQuestion": false },
+      { "text": "Some of them you never thanked.", "isQuestion": false },
+      { "text": "Blink slowly. Let the eyes go soft.", "isQuestion": false, "isObservation": true },
+      { "text": "They're in there though.", "isQuestion": false },
+      { "text": "Who comes to mind?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_008",
+    "theme": "The Observer",
+    "perspective": "Nine Days",
+    "closingLine": "That exact thing.",
+    "lines": [
+      { "text": "There will be people who never get to have a Tuesday like yours.", "isQuestion": false },
+      { "text": "Not the good parts.", "isQuestion": false },
+      { "text": "All of it.", "isQuestion": false },
+      { "text": "The commute.", "isQuestion": false },
+      { "text": "What you ate standing up because there wasn't time.", "isQuestion": false },
+      { "text": "The way your pillow holds your head by now.", "isQuestion": false },
+      { "text": "The low hum you've stopped registering.", "isQuestion": false },
+      { "text": "They've watched it through a screen and they know every detail.", "isQuestion": false },
+      { "text": "Press a palm flat against the surface beneath you right now.", "isQuestion": false, "isObservation": true },
+      { "text": "That's what they'd want.", "isQuestion": false },
+      { "text": "That exact thing.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_009",
+    "theme": "The Empty Page",
+    "perspective": "Soul",
+    "closingLine": "The space the thing left.",
+    "lines": [
+      { "text": "Sometimes it ends and leaves a blank space.", "isQuestion": false },
+      { "text": "A plan that didn't happen.", "isQuestion": false },
+      { "text": "A version of yourself you were sure about.", "isQuestion": false },
+      { "text": "Gone.", "isQuestion": false },
+      { "text": "And the space it left reads as loss at first.", "isQuestion": false },
+      { "text": "It is loss.", "isQuestion": false },
+      { "text": "Look at the space in front of you right now. Whatever's there.", "isQuestion": false, "isObservation": true },
+      { "text": "What could go there now?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_010",
+    "theme": "Purpose",
+    "perspective": "Flat",
+    "closingLine": "Most minutes get used for something else.",
+    "lines": [
+      { "text": "Time passes at the same rate on a bad day as a good one.", "isQuestion": false },
+      { "text": "This minute is the same length as the one before it.", "isQuestion": false },
+      { "text": "You are in it.", "isQuestion": false },
+      { "text": "Not working toward it.", "isQuestion": false },
+      { "text": "Not waiting for the next one.", "isQuestion": false },
+      { "text": "Which is rarer than it sounds.", "isQuestion": false },
+      { "text": "Put a hand flat on the nearest surface.", "isQuestion": false, "isObservation": true },
+      { "text": "Most minutes go somewhere else.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_011",
+    "theme": "Connection",
+    "perspective": "Eternal Sunshine",
+    "closingLine": "Two people in a room that nobody knows about.",
+    "lines": [
+      { "text": "Nobody is watching this.", "isQuestion": false },
+      { "text": "There's no record of it.", "isQuestion": false },
+      { "text": "You opened this, you're here, and in a few minutes you'll close it.", "isQuestion": false },
+      { "text": "That's the whole transaction.", "isQuestion": false },
+      { "text": "It doesn't have to be more than that.", "isQuestion": false },
+      { "text": "Notice the temperature of the air on the face right now.", "isQuestion": false, "isObservation": true },
+      { "text": "Two people in a room that nobody knows about.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_012",
+    "theme": "Letting Go",
+    "perspective": "Flat",
+    "closingLine": "Most of the time you won't.",
+    "lines": [
+      { "text": "Some thoughts stay past their usefulness.", "isQuestion": false },
+      { "text": "Not bad ones necessarily.", "isQuestion": false },
+      { "text": "Ones that have been running long enough to make a groove.", "isQuestion": false },
+      { "text": "You can put them down.", "isQuestion": false },
+      { "text": "The floor is fine. The counter. Wherever the hands are right now.", "isQuestion": false },
+      { "text": "They won't go anywhere.", "isQuestion": false },
+      { "text": "Unclench the hands if they're clenched. Open them.", "isQuestion": false, "isObservation": true },
+      { "text": "They'll be there if you want them later.", "isQuestion": false },
+      { "text": "Most of the time you won't.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_013",
+    "theme": "Uncertainty",
+    "perspective": "Flat",
+    "closingLine": "Not everything unfinished is going wrong.",
+    "lines": [
+      { "text": "Some things are still open.", "isQuestion": false },
+      { "text": "A question you're waiting on.", "isQuestion": false },
+      { "text": "A plan that's half made.", "isQuestion": false },
+      { "text": "A conversation that's going to happen but hasn't.", "isQuestion": false },
+      { "text": "Something you said that you haven't settled.", "isQuestion": false },
+      { "text": "That's the shape of it right now.", "isQuestion": false },
+      { "text": "Look at the ceiling for a second. Then come back.", "isQuestion": false, "isObservation": true },
+      { "text": "What's open right now?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_014",
+    "theme": "Stillness",
+    "perspective": "Soul",
+    "closingLine": "There they are.",
+    "lines": [
+      { "text": "Silence has a texture.", "isQuestion": false },
+      { "text": "The empty-room kind is not the same as when a person is asleep.", "isQuestion": false },
+      { "text": "One at 2am, when the only light is the street or the moon.", "isQuestion": false },
+      { "text": "Another at noon.", "isQuestion": false },
+      { "text": "The thoughts that come in silence were already there.", "isQuestion": false },
+      { "text": "Waiting for the noise to stop.", "isQuestion": false },
+      { "text": "Stay exactly where you are.", "isQuestion": false, "isObservation": true },
+      { "text": "There they are.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_015",
+    "theme": "Beginning",
+    "perspective": "Nine Days",
+    "closingLine": "Either way it's already happening.",
+    "lines": [
+      { "text": "Something is always starting.", "isQuestion": false },
+      { "text": "Without announcement.", "isQuestion": false },
+      { "text": "In the middle of everything else.", "isQuestion": false },
+      { "text": "The middle of a tired evening.", "isQuestion": false },
+      { "text": "The middle of a week that hasn't been much.", "isQuestion": false },
+      { "text": "The next breath is not a metaphor. It's the most childish fact there is.", "isQuestion": false },
+      { "text": "Which is fine.", "isQuestion": false },
+      { "text": "Take one and let it go slower than usual.", "isQuestion": false, "isObservation": true },
+      { "text": "What will you touch next?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_016",
+    "theme": "The Drift",
+    "perspective": "Soul",
+    "engagement": "none",
+    "closingLine": "It's probably still there. Waiting.",
+    "lines": [
+      { "text": "Some days you drift a little.", "isQuestion": false },
+      { "text": "Not far.", "isQuestion": false },
+      { "text": "A few degrees off from yourself.", "isQuestion": false },
+      { "text": "You're still doing the things.", "isQuestion": false },
+      { "text": "Moving through the rooms.", "isQuestion": false },
+      { "text": "Saying the right words at the right times.", "isQuestion": false },
+      { "text": "But an hour ago, or three, you left yourself sitting with one thought.", "isQuestion": false },
+      { "text": "And you never quite came back.", "isQuestion": false },
+      { "text": "Press down into whatever you're sitting on. Notice the resistance.", "isQuestion": false, "isObservation": true },
+      { "text": "That thought you left yourself with.", "isQuestion": false },
+      { "text": "It's there.", "isQuestion": false },
+      { "text": "Waiting.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_017",
+    "theme": "The Zone",
+    "perspective": "Soul",
+    "engagement": "text",
+    "textPrompt": "The thing where you disappear.",
+    "closingLine": "You probably haven't done it recently enough.",
+    "lines": [
+      { "text": "There's something you do where time goes.", "isQuestion": false },
+      { "text": "Not a career. Not an obligation.", "isQuestion": false },
+      { "text": "A thing.", "isQuestion": false },
+      { "text": "You start and then you look up and an hour has passed.", "isQuestion": false },
+      { "text": "Not because you were distracted.", "isQuestion": false },
+      { "text": "Because you were completely in.", "isQuestion": false },
+      { "text": "Most of the day asks you to be partially elsewhere.", "isQuestion": false },
+      { "text": "Planning what's next. Monitoring how it's going.", "isQuestion": false },
+      { "text": "But not that.", "isQuestion": false },
+      { "text": "Notice if the shoulders are up. Let them drop.", "isQuestion": false, "isObservation": true },
+      { "text": "What's yours?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_018",
+    "theme": "Without History",
+    "perspective": "Soul",
+    "engagement": "none",
+    "closingLine": "You just moved through it too fast to notice.",
+    "lines": [
+      { "text": "Think about tasting something for the first time.", "isQuestion": false },
+      { "text": "No memory attached to it.", "isQuestion": false },
+      { "text": "No comparison.", "isQuestion": false },
+      { "text": "Only itself.", "isQuestion": false },
+      { "text": "Most of what you experience now comes with a history.", "isQuestion": false },
+      { "text": "A previous time. An expectation.", "isQuestion": false },
+      { "text": "You taste it and you're also tasting every time you've tasted it before.", "isQuestion": false },
+      { "text": "Run the tongue along the teeth once. The mouth is here.", "isQuestion": false, "isObservation": true },
+      { "text": "Part of today had never happened before.", "isQuestion": false },
+      { "text": "You moved through it too fast to notice.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_019",
+    "theme": "The One",
+    "perspective": "Nine Days",
+    "engagement": "text",
+    "textPrompt": "If you only got one moment to keep.",
+    "closingLine": "What would yours be?",
+    "lines": [
+      { "text": "If you only got one.", "isQuestion": false },
+      { "text": "One human moment to keep.", "isQuestion": false },
+      { "text": "Not a milestone. Not an achievement.", "isQuestion": false },
+      { "text": "One thing.", "isQuestion": false },
+      { "text": "The light at a certain hour in a place you can name.", "isQuestion": false },
+      { "text": "A voice when the person didn't know you were listening.", "isQuestion": false },
+      { "text": "The temperature of a car in December.", "isQuestion": false },
+      { "text": "A dog asleep on the floor in the middle of everything.", "isQuestion": false },
+      { "text": "Close the eyes. Find one.", "isQuestion": false, "isObservation": true },
+      { "text": "What would yours be?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_020",
+    "theme": "Everything Is Interesting",
+    "perspective": "Nine Days",
+    "engagement": "none",
+    "closingLine": "It's probably more interesting than you remember.",
+    "lines": [
+      { "text": "There are people who find everything interesting.", "isQuestion": false },
+      { "text": "Not because they're performing it.", "isQuestion": false },
+      { "text": "Because they're looking.", "isQuestion": false },
+      { "text": "A crack in the ceiling.", "isQuestion": false },
+      { "text": "The way a stranger holds their bag.", "isQuestion": false },
+      { "text": "The sound a room makes when people leave it.", "isQuestion": false },
+      { "text": "The way a sunset changes from one street to the next.", "isQuestion": false },
+      { "text": "The sound a heel makes on wet concrete.", "isQuestion": false },
+      { "text": "Most people move through the world looking for what's addressed to them.", "isQuestion": false },
+      { "text": "And walk past everything else.", "isQuestion": false },
+      { "text": "Pick something near you that you've stopped seeing. Really look.", "isQuestion": false, "isObservation": true },
+      { "text": "It's probably more interesting than you remember.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_021",
+    "theme": "Okay Anyway",
+    "perspective": "Eternal Sunshine",
+    "engagement": "soft",
+    "softOptions": ["yes", "trying to", "not sure"],
+    "softPrompt": "Is there something you're choosing anyway?",
+    "closingLine": "The knowing and the choosing anyway.",
+    "lines": [
+      { "text": "Sometimes you know how it'll go.", "isQuestion": false },
+      { "text": "You've been here before.", "isQuestion": false },
+      { "text": "You know your patterns.", "isQuestion": false },
+      { "text": "And you choose to do it anyway.", "isQuestion": false },
+      { "text": "Not because you've figured out how to make it different.", "isQuestion": false },
+      { "text": "Just because.", "isQuestion": false },
+      { "text": "That's not naivety.", "isQuestion": false },
+      { "text": "It's something else.", "isQuestion": false },
+      { "text": "Closer to stubbornness. Or hope. Hard to say.", "isQuestion": false },
+      { "text": "Put a hand on the chest. Notice it going.", "isQuestion": false, "isObservation": true },
+      { "text": "Is there anything you're choosing anyway?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_022",
+    "theme": "Not a Concept",
+    "perspective": "Eternal Sunshine",
+    "engagement": "none",
+    "closingLine": "They'll just be themselves.",
+    "lines": [
+      { "text": "Sometimes you meet a person and think:", "isQuestion": false },
+      { "text": "this one will change it.", "isQuestion": false },
+      { "text": "And you start building them up before you've had an actual conversation.", "isQuestion": false },
+      { "text": "They become the answer to a question you haven't said out loud.", "isQuestion": false },
+      { "text": "The actual person, the one with a bad day and their own confusion and their own needs,", "isQuestion": false },
+      { "text": "starts to blur.", "isQuestion": false },
+      { "text": "Notice the weight of the arms right now. Still here.", "isQuestion": false, "isObservation": true },
+      { "text": "You can't give a person a role they didn't audition for.", "isQuestion": false },
+      { "text": "They'll be themselves.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_023",
+    "theme": "The Worn Through",
+    "perspective": "Eternal Sunshine",
+    "engagement": "none",
+    "closingLine": "Without you noticing.",
+    "lines": [
+      { "text": "There's a worn-down quality that comes from being loved for a long time.", "isQuestion": false },
+      { "text": "The edges get soft.", "isQuestion": false },
+      { "text": "Words get said that can't be unsaid.", "isQuestion": false },
+      { "text": "You see each other in the bad light too.", "isQuestion": false },
+      { "text": "The sheen goes.", "isQuestion": false },
+      { "text": "Not worse.", "isQuestion": false },
+      { "text": "Worn in.", "isQuestion": false },
+      { "text": "Pick something up. Hold it.", "isQuestion": false, "isObservation": true },
+      { "text": "The ones you love that are worn through.", "isQuestion": false },
+      { "text": "They got there slowly.", "isQuestion": false },
+      { "text": "Without you noticing.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_024",
+    "theme": "The Decision That Already Happened",
+    "perspective": "Flat",
+    "engagement": "none",
+    "closingLine": "Choosing something before you've earned the right to want more.",
+    "lines": [
+      { "text": "You decided this.", "isQuestion": false },
+      { "text": "Not as a consolation.", "isQuestion": false },
+      { "text": "Not while waiting for someday to arrive.", "isQuestion": false },
+      { "text": "This is the life.", "isQuestion": false },
+      { "text": "These streets. This routine. These people.", "isQuestion": false },
+      { "text": "That decision might have happened without you noticing it.", "isQuestion": false },
+      { "text": "Or maybe you made it deliberately.", "isQuestion": false },
+      { "text": "Either way.", "isQuestion": false },
+      { "text": "Look at whatever is directly in front of you.", "isQuestion": false, "isObservation": true },
+      { "text": "This is a life you chose to be in.", "isQuestion": false },
+      { "text": "Choosing this before you've earned the right to want more.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_026",
+    "theme": "Too Much Inside",
+    "perspective": "Nine Days - Interior",
+    "engagement": "none",
+    "closingLine": "Most of it.",
+    "lines": [
+      { "text": "There are people who walk into a place and already know how it's going.", "isQuestion": false },
+      { "text": "Without anyone telling them.", "isQuestion": false },
+      { "text": "The face that changed for half a second and came back.", "isQuestion": false },
+      { "text": "The text that arrived a little too fast.", "isQuestion": false },
+      { "text": "The silence that had a shape to it.", "isQuestion": false },
+      { "text": "They're not guessing. They've been watching longer than most.", "isQuestion": false },
+      { "text": "That attention is expensive.", "isQuestion": false },
+      { "text": "They don't get reimbursed for it.", "isQuestion": false },
+      { "text": "Close the eyes. One second.", "isQuestion": false, "isObservation": true },
+      { "text": "They learn eventually to put most of it down.", "isQuestion": false },
+      { "text": "Most of it.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_027",
+    "theme": "The Tape Running",
+    "perspective": "Nine Days - Interior",
+    "engagement": "soft",
+    "softOptions": ["yes", "sometimes", "not tonight"],
+    "softPrompt": "Is there something from a long time ago that still plays sometimes?",
+    "closingLine": "Not there. Here.",
+    "lines": [
+      { "text": "Some things from years ago still play.", "isQuestion": false },
+      { "text": "Not because you want them to.", "isQuestion": false },
+      { "text": "They appear.", "isQuestion": false },
+      { "text": "A conversation that ended wrong.", "isQuestion": false },
+      { "text": "A place you stood in.", "isQuestion": false },
+      { "text": "An earlier you that you're not sure what to do with.", "isQuestion": false },
+      { "text": "You've run it so many times it's taken on the quality of a dream, smoothed out and slightly wrong.", "isQuestion": false },
+      { "text": "But it still runs.", "isQuestion": false },
+      { "text": "What does the air around you smell like right now?", "isQuestion": false, "isObservation": true },
+      { "text": "That's where you are.", "isQuestion": false },
+      { "text": "Not there. Here.", "isQuestion": false },
+      { "text": "Is there anything from a long time ago that still plays?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_028",
+    "theme": "The Wall You Built",
+    "perspective": "Nine Days - Interior",
+    "engagement": "none",
+    "closingLine": "The wall kept you safe. It also kept things out.",
+    "lines": [
+      { "text": "You learned to not show everything.", "isQuestion": false },
+      { "text": "Not because you're dishonest.", "isQuestion": false },
+      { "text": "Because showing everything once cost you.", "isQuestion": false },
+      { "text": "So you built a wall around yourself.", "isQuestion": false },
+      { "text": "Very carefully.", "isQuestion": false },
+      { "text": "Most people can't see it.", "isQuestion": false },
+      { "text": "Some can.", "isQuestion": false },
+      { "text": "The ones who can are the ones you're most afraid of.", "isQuestion": false },
+      { "text": "Rest the hands in the lap. Let them go flat.", "isQuestion": false, "isObservation": true },
+      { "text": "You can let some of it down.", "isQuestion": false },
+      { "text": "Not all of it.", "isQuestion": false },
+      { "text": "Some.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_029",
+    "theme": "The Good Memory That Hurts",
+    "perspective": "Nine Days - Interior",
+    "engagement": "text",
+    "textPrompt": "A memory that is good and sad at the same time.",
+    "closingLine": "You were happy in a way that's hard to explain now.",
+    "lines": [
+      { "text": "There's a memory that's good.", "isQuestion": false },
+      { "text": "Genuinely good.", "isQuestion": false },
+      { "text": "And it still hurts somehow.", "isQuestion": false },
+      { "text": "Not because anything went wrong in it.", "isQuestion": false },
+      { "text": "But because it's finished.", "isQuestion": false },
+      { "text": "Because the you in that memory didn't know yet what was coming.", "isQuestion": false },
+      { "text": "Or because the people in it are different now.", "isQuestion": false },
+      { "text": "Or gone.", "isQuestion": false },
+      { "text": "Or because that happiness hasn't come around again.", "isQuestion": false },
+      { "text": "Notice if there's tightness in the chest. Breathe into it slowly.", "isQuestion": false, "isObservation": true },
+      { "text": "That memory. What is it?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_030",
+    "theme": "What You Don't Say",
+    "perspective": "Nine Days - Interior",
+    "engagement": "soft",
+    "softOptions": ["yes", "no", "maybe"],
+    "softPrompt": "Is there something you've been meaning to say to someone?",
+    "closingLine": "The unsaid things don't disappear. They wait.",
+    "lines": [
+      { "text": "There's something you haven't said.", "isQuestion": false },
+      { "text": "To someone specific.", "isQuestion": false },
+      { "text": "Maybe it's kind and you're afraid it'll come out wrong.", "isQuestion": false },
+      { "text": "Maybe it's hard and you don't know if you're ready.", "isQuestion": false },
+      { "text": "Maybe it's an apology that's been waiting so long it's turned impossible.", "isQuestion": false },
+      { "text": "Or something true with no good timing.", "isQuestion": false },
+      { "text": "The right time is just: any time.", "isQuestion": false },
+      { "text": "Listen to whatever sound is furthest from where you are right now.", "isQuestion": false, "isObservation": true },
+      { "text": "Is there anything you've been meaning to say?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_031",
+    "theme": "Watching Yourself",
+    "perspective": "Nine Days - Interior",
+    "engagement": "none",
+    "closingLine": "Things you don't always take out.",
+    "lines": [
+      { "text": "Sometimes you step outside yourself and watch.", "isQuestion": false },
+      { "text": "This person walking through their day.", "isQuestion": false },
+      { "text": "Making the face they make in public.", "isQuestion": false },
+      { "text": "Saying what keeps it smooth.", "isQuestion": false },
+      { "text": "And underneath, more complicated.", "isQuestion": false },
+      { "text": "Without good words yet.", "isQuestion": false },
+      { "text": "Find a reflection if there's one nearby. A second.", "isQuestion": false, "isObservation": true },
+      { "text": "That person looking back knows.", "isQuestion": false },
+      { "text": "What you don't always take out.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_032",
+    "theme": "The Part Nobody Sees",
+    "perspective": "Nine Days - Interior",
+    "engagement": "text",
+    "textPrompt": "One thing about yourself almost nobody knows.",
+    "closingLine": "The unshared parts are still parts.",
+    "lines": [
+      { "text": "There's a part of you that almost nobody sees.", "isQuestion": false },
+      { "text": "Not a secret exactly.", "isQuestion": false },
+      { "text": "...unshared.", "isQuestion": false },
+      { "text": "A thought you have that you immediately walk past.", "isQuestion": false },
+      { "text": "A fear you've never said out loud.", "isQuestion": false },
+      { "text": "A hope that feels too exposed to mention.", "isQuestion": false },
+      { "text": "A love you've kept private because it seems unexplainable.", "isQuestion": false },
+      { "text": "Those parts don't make you strange.", "isQuestion": false },
+      { "text": "They make you a person.", "isQuestion": false },
+      { "text": "Touch the inside of the forearm. Notice the temperature.", "isQuestion": false, "isObservation": true },
+      { "text": "One detail about yourself that almost nobody knows.", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_033",
+    "theme": "The Price of Caring",
+    "perspective": "Nine Days - Interior",
+    "engagement": "none",
+    "closingLine": "Those people don't know.",
+    "lines": [
+      { "text": "There's a person who checks on everyone else before checking on themselves.", "isQuestion": false },
+      { "text": "Not because they're strategic about it.", "isQuestion": false },
+      { "text": "The alternative, not noticing, doesn't occur to them.", "isQuestion": false },
+      { "text": "They know when a person in the room is pretending to be fine.", "isQuestion": false },
+      { "text": "They know when a text came back too fast or too slow.", "isQuestion": false },
+      { "text": "The caring costs. It lodges behind the sternum.", "isQuestion": false },
+      { "text": "A tired that's harder to name than the working-late version.", "isQuestion": false },
+      { "text": "Roll the shoulders back. Let them drop.", "isQuestion": false, "isObservation": true },
+      { "text": "There's at least one person they're holding right now.", "isQuestion": false },
+      { "text": "Maybe two.", "isQuestion": false },
+      { "text": "Those people don't know.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_034",
+    "theme": "The One Who Knew",
+    "perspective": "Nine Days - Interior",
+    "engagement": "soft",
+    "softOptions": ["yes", "not anymore", "I'm not sure"],
+    "softPrompt": "Is there someone who really knew you once?",
+    "closingLine": "That knowing happened. It's still true.",
+    "lines": [
+      { "text": "There was a person once who really knew you.", "isQuestion": false },
+      { "text": "Not every iteration of you.", "isQuestion": false },
+      { "text": "But a version that mattered.", "isQuestion": false },
+      { "text": "They knew how you got when you were tired.", "isQuestion": false },
+      { "text": "What made you laugh in that particular way.", "isQuestion": false },
+      { "text": "What you did when you were nervous.", "isQuestion": false },
+      { "text": "Whether you're still close to them or not...", "isQuestion": false },
+      { "text": "that knowing happened.", "isQuestion": false },
+      { "text": "Listen to what's in here right now.", "isQuestion": false, "isObservation": true },
+      { "text": "Was there a person like that for you?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_035",
+    "theme": "Enough",
+    "perspective": "Nine Days - Interior",
+    "engagement": "none",
+    "closingLine": "Even here.",
+    "lines": [
+      { "text": "You've been measuring for a long time.", "isQuestion": false },
+      { "text": "Enough at work. Enough for the people you love.", "isQuestion": false },
+      { "text": "Enough in your own head, which is the hardest one.", "isQuestion": false },
+      { "text": "The bar moves.", "isQuestion": false },
+      { "text": "You reach somewhere and there's another one waiting.", "isQuestion": false },
+      { "text": "It has been moving for a long time. Maybe forever.", "isQuestion": false },
+      { "text": "Take one slow breath. Just one.", "isQuestion": false, "isObservation": true },
+      { "text": "The measuring doesn't stop when you tell it to.", "isQuestion": false },
+      { "text": "You're doing it right now.", "isQuestion": false },
+      { "text": "Even here.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_036",
+    "theme": "The Thing About Pizza",
+    "perspective": "Soul",
+    "engagement": "soft",
+    "softOptions": ["yes", "not today", "kind of"],
+    "softPrompt": "Did anything taste like something today?",
+    "closingLine": "That's not a small thing to be able to do.",
+    "lines": [
+      { "text": "Today the body wanted something.", "isQuestion": false },
+      { "text": "Food. Water. Warmth. Rest.", "isQuestion": false },
+      { "text": "And it got that.", "isQuestion": false },
+      { "text": "That transaction happens so many times a day that you stop clocking it.", "isQuestion": false },
+      { "text": "But stop on it for a second.", "isQuestion": false },
+      { "text": "You tasted something today.", "isQuestion": false },
+      { "text": "Tasted it properly.", "isQuestion": false },
+      { "text": "Run the tongue over the teeth once. Notice the mouth exists.", "isQuestion": false, "isObservation": true },
+      { "text": "Did anything taste like something today?", "isQuestion": true, "suggestJournal": false }
+    ]
+  },
+  {
+    "key": "session_037",
+    "theme": "The Subway Grate",
+    "perspective": "Soul",
+    "engagement": "none",
+    "closingLine": "It was always there.",
+    "lines": [
+      { "text": "Sometimes you step outside and the air is a different temperature than you expected.", "isQuestion": false },
+      { "text": "And for about half a second you're a person in air.", "isQuestion": false },
+      { "text": "Not the one with the meeting.", "isQuestion": false },
+      { "text": "Not the one rehearsing the conversation.", "isQuestion": false },
+      { "text": "The temperature difference between you and the air.", "isQuestion": false },
+      { "text": "That's it.", "isQuestion": false },
+      { "text": "Find the air on the backs of the hands.", "isQuestion": false, "isObservation": true },
+      { "text": "It was always there.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_038",
+    "theme": "The Spark Thing",
+    "perspective": "Soul",
+    "engagement": "text",
+    "textPrompt": "Something that makes you feel awake. Not a purpose. Just a thing.",
+    "closingLine": "You haven't given it a name. That's probably fine.",
+    "lines": [
+      { "text": "People spend a lot of time looking for their purpose.", "isQuestion": false },
+      { "text": "The big one. The reason.", "isQuestion": false },
+      { "text": "Like life is a job interview and you need a good answer.", "isQuestion": false },
+      { "text": "But there's another category.", "isQuestion": false },
+      { "text": "Not what you fantasize about becoming. Not a career.", "isQuestion": false },
+      { "text": "An activity that makes you stop and notice you're doing it.", "isQuestion": false },
+      { "text": "A thing that changes the air while it's happening.", "isQuestion": false },
+      { "text": "Look around the space you're in. What's the most interesting object in it?", "isQuestion": false, "isObservation": true },
+      { "text": "What's yours?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_039",
+    "theme": "Walking",
+    "perspective": "Soul",
+    "engagement": "none",
+    "closingLine": "It got you there anyway.",
+    "lines": [
+      { "text": "You walked today without thinking about how.", "isQuestion": false },
+      { "text": "Left foot. Right foot. Like a wave the body doesn't think about.", "isQuestion": false },
+      { "text": "The whole machinery of it running without you.", "isQuestion": false },
+      { "text": "Your legs running a program you spent a year writing.", "isQuestion": false },
+      { "text": "While you were somewhere else entirely.", "isQuestion": false },
+      { "text": "Probably in a conversation that never happened.", "isQuestion": false },
+      { "text": "Press the feet flat to the floor. Both of them.", "isQuestion": false, "isObservation": true },
+      { "text": "It got you there anyway.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_040",
+    "theme": "The Music You Didn't Choose",
+    "perspective": "Soul",
+    "engagement": "soft",
+    "softOptions": ["yes", "not today", "I can't remember"],
+    "softPrompt": "Did you hear something today that moved through you?",
+    "closingLine": "Sound gets in whether you let it or not.",
+    "lines": [
+      { "text": "Sound does what other senses don't.", "isQuestion": false },
+      { "text": "It doesn't wait for you to be ready.", "isQuestion": false },
+      { "text": "It arrives.", "isQuestion": false },
+      { "text": "A song from down the hall. A voice coming through a wall.", "isQuestion": false },
+      { "text": "The sound of rain on a specific surface.", "isQuestion": false },
+      { "text": "Someone laughing loud enough to travel.", "isQuestion": false },
+      { "text": "These sounds register before you've decided what to do with them.", "isQuestion": false },
+      { "text": "That's the honest response. Before the labeling starts.", "isQuestion": false },
+      { "text": "Close the eyes and listen for five seconds. Whatever's there.", "isQuestion": false, "isObservation": true },
+      { "text": "Did anything move through you like that today?", "isQuestion": true, "suggestJournal": false }
+    ]
+  },
+  {
+    "key": "session_041",
+    "theme": "The Barber Chair",
+    "perspective": "Soul",
+    "engagement": "text",
+    "textPrompt": "A conversation recently that surprised you.",
+    "closingLine": "People will tell you things if you just ask.",
+    "lines": [
+      { "text": "Most conversations stay on the surface.", "isQuestion": false },
+      { "text": "Fine. Good. Busy. You know how it is.", "isQuestion": false },
+      { "text": "And then sometimes one turns a corner.", "isQuestion": false },
+      { "text": "One of you says it without planning to.", "isQuestion": false },
+      { "text": "Or you do, without planning to.", "isQuestion": false },
+      { "text": "And suddenly you know them differently.", "isQuestion": false },
+      { "text": "And they know you differently.", "isQuestion": false },
+      { "text": "And the whole exchange takes about ninety seconds.", "isQuestion": false },
+      { "text": "Look toward the door of wherever you are. Someone could walk in.", "isQuestion": false, "isObservation": true },
+      { "text": "When was the last time a conversation surprised you?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_042",
+    "theme": "The Seed",
+    "perspective": "Soul",
+    "engagement": "none",
+    "closingLine": "That's always it.",
+    "lines": [
+      { "text": "There's a thing that happens some days.", "isQuestion": false },
+      { "text": "Not a big one.", "isQuestion": false },
+      { "text": "Simple enough that it almost didn't register.", "isQuestion": false },
+      { "text": "A seed spinning down from a tree.", "isQuestion": false },
+      { "text": "The way a person looked at you.", "isQuestion": false },
+      { "text": "The exact color the light was at four in the afternoon.", "isQuestion": false },
+      { "text": "And something in you goes quiet.", "isQuestion": false },
+      { "text": "Not sad. Not happy.", "isQuestion": false },
+      { "text": "...present.", "isQuestion": false },
+      { "text": "Pick something up. Hold it.", "isQuestion": false, "isObservation": true },
+      { "text": "That was it.", "isQuestion": false },
+      { "text": "That's always it.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_043",
+    "theme": "The Show",
+    "perspective": "Soul",
+    "engagement": "soft",
+    "softOptions": ["yes", "working on it", "not yet"],
+    "softPrompt": "Are you living your life or waiting for it to start?",
+    "closingLine": "The show is already happening. You're in it.",
+    "lines": [
+      { "text": "Some people spend their whole lives waiting for it to start.", "isQuestion": false },
+      { "text": "Waiting until they have more.", "isQuestion": false },
+      { "text": "Until the timing is better.", "isQuestion": false },
+      { "text": "Until they stop being afraid of it.", "isQuestion": false },
+      { "text": "And then one day they're sitting at a piano.", "isQuestion": false },
+      { "text": "With a pizza crust and a maple seed in their pocket.", "isQuestion": false },
+      { "text": "And the thing they've been waiting to begin,", "isQuestion": false },
+      { "text": "This was it.", "isQuestion": false },
+      { "text": "This whole time. This was the show.", "isQuestion": false },
+      { "text": "Press down into whatever's beneath you right now.", "isQuestion": false, "isObservation": true },
+      { "text": "Are you waiting? Or are you here?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_044",
+    "theme": "What You're Good At",
+    "perspective": "Soul",
+    "engagement": "text",
+    "textPrompt": "Something you're genuinely good at that isn't your job.",
+    "closingLine": "Someone out there is working hard at the thing you barely notice you do.",
+    "lines": [
+      { "text": "There's something you do well.", "isQuestion": false },
+      { "text": "One that comes easier to you than most.", "isQuestion": false },
+      { "text": "And you've probably spent years not counting it.", "isQuestion": false },
+      { "text": "Because it came too easily to count.", "isQuestion": false },
+      { "text": "Or because you've always done it so it doesn't seem unusual.", "isQuestion": false },
+      { "text": "But it is.", "isQuestion": false },
+      { "text": "What comes naturally to you came hard to someone else.", "isQuestion": false },
+      { "text": "Look at the forearms. They've been at this a long time.", "isQuestion": false, "isObservation": true },
+      { "text": "What's the skill that doesn't get counted?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_045",
+    "theme": "Regular Living",
+    "perspective": "Soul",
+    "engagement": "none",
+    "closingLine": "The Tuesday parts too.",
+    "lines": [
+      { "text": "People spend a lot of time building toward a life they can recognize as significant.", "isQuestion": false },
+      { "text": "They skip the in-between.", "isQuestion": false },
+      { "text": "Not in pain right now. That's a Tuesday morning. Doesn't get counted.", "isQuestion": false },
+      { "text": "Enough light to read by. Doesn't get counted.", "isQuestion": false },
+      { "text": "A place that's theirs, with their particular arrangement of objects.", "isQuestion": false },
+      { "text": "Filed under nothing and gone before they sleep.", "isQuestion": false },
+      { "text": "Find one object in here that's been there so long you stopped seeing it.", "isQuestion": false, "isObservation": true },
+      { "text": "They built that.", "isQuestion": false },
+      { "text": "The Tuesdays too.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_046",
+    "theme": "The First Time",
+    "perspective": "Eternal Sunshine",
+    "engagement": "none",
+    "closingLine": "Before you knew anything.",
+    "lines": [
+      { "text": "There was a first time you met someone who matters to you now.", "isQuestion": false },
+      { "text": "One second.", "isQuestion": false },
+      { "text": "Before they were yours and you were theirs.", "isQuestion": false },
+      { "text": "When they were only a person in a room.", "isQuestion": false },
+      { "text": "You didn't know yet what they would cost you.", "isQuestion": false },
+      { "text": "Or give you.", "isQuestion": false },
+      { "text": "Or how much space they would eventually take up.", "isQuestion": false },
+      { "text": "You had a first impression. That's all.", "isQuestion": false },
+      { "text": "Before all the history got laid on top.", "isQuestion": false },
+      { "text": "Close the eyes and find that first instant if you can.", "isQuestion": false, "isObservation": true },
+      { "text": "What did you notice first?", "isQuestion": false },
+      { "text": "Before you knew anything.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_047",
+    "theme": "The Texture of a Person",
+    "perspective": "Eternal Sunshine",
+    "engagement": "text",
+    "textPrompt": "One specific physical detail you remember about someone you love.",
+    "closingLine": "Nobody puts those things in the eulogy.",
+    "lines": [
+      { "text": "When you love someone you remember specific details.", "isQuestion": false },
+      { "text": "Not general ones.", "isQuestion": false },
+      { "text": "Specific ones.", "isQuestion": false },
+      { "text": "The way they laugh before the laugh actually comes out.", "isQuestion": false },
+      { "text": "What their hands look like when they're thinking.", "isQuestion": false },
+      { "text": "The sound of them moving around in another room.", "isQuestion": false },
+      { "text": "The exact pressure of being in the same space.", "isQuestion": false },
+      { "text": "Nobody puts those in the eulogy.", "isQuestion": false },
+      { "text": "Run the fingers across whatever is being touched right now.", "isQuestion": false, "isObservation": true },
+      { "text": "One specific physical detail about someone you love.", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_048",
+    "theme": "The Fight That Wasn't Really About That",
+    "perspective": "Eternal Sunshine",
+    "engagement": "soft",
+    "softOptions": ["yes", "probably", "I don't think so"],
+    "softPrompt": "Is there a conflict in your life that's really about something else?",
+    "closingLine": "Most arguments are about something older than the argument.",
+    "lines": [
+      { "text": "Most fights between people who love each other.", "isQuestion": false },
+      { "text": "Aren't really about what they're about.", "isQuestion": false },
+      { "text": "The dishes. The timing. The parking spot. Whatever was said.", "isQuestion": false },
+      { "text": "These are the surface.", "isQuestion": false },
+      { "text": "There's something older underneath.", "isQuestion": false },
+      { "text": "It's been waiting for a place to land.", "isQuestion": false },
+      { "text": "Nobody's looking at me. I'm not enough. I'm going to lose this.", "isQuestion": false },
+      { "text": "That's the conversation underneath.", "isQuestion": false },
+      { "text": "Which almost never gets had.", "isQuestion": false },
+      { "text": "Notice if there's tension anywhere right now.", "isQuestion": false, "isObservation": true },
+      { "text": "Is there a conflict in your life that's really about something older?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_049",
+    "theme": "The Frozen River",
+    "perspective": "Eternal Sunshine",
+    "engagement": "none",
+    "closingLine": "More than once probably.",
+    "lines": [
+      { "text": "There was a time with another person where everything went quiet.", "isQuestion": false },
+      { "text": "Not awkwardly quiet.", "isQuestion": false },
+      { "text": "The other kind.", "isQuestion": false },
+      { "text": "Where you were both there.", "isQuestion": false },
+      { "text": "Not needing it to be anything other than what it was.", "isQuestion": false },
+      { "text": "Maybe you were looking up at the stars.", "isQuestion": false },
+      { "text": "Maybe sitting in a car.", "isQuestion": false },
+      { "text": "Maybe in a room with the right light.", "isQuestion": false },
+      { "text": "And you thought, I could stay here.", "isQuestion": false },
+      { "text": "Look up at the ceiling above you for a second.", "isQuestion": false, "isObservation": true },
+      { "text": "You've had that.", "isQuestion": false },
+      { "text": "More than once.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_050",
+    "theme": "What You Can't Erase",
+    "perspective": "Eternal Sunshine",
+    "engagement": "text",
+    "textPrompt": "Something about a person that stayed with you even after they were gone.",
+    "closingLine": "And there they are again.",
+    "lines": [
+      { "text": "People leave traces.", "isQuestion": false },
+      { "text": "Even when they're gone.", "isQuestion": false },
+      { "text": "A phrase they used that you caught yourself saying.", "isQuestion": false },
+      { "text": "A song they showed you that's yours now.", "isQuestion": false },
+      { "text": "There's something they taught you to look at that you can't unsee.", "isQuestion": false },
+      { "text": "You can't choose which pieces stay.", "isQuestion": false },
+      { "text": "They choose themselves.", "isQuestion": false },
+      { "text": "And years later you'll be washing a cup or waiting for a bus.", "isQuestion": false },
+      { "text": "And there they are again.", "isQuestion": false },
+      { "text": "Notice if there's a smell in the air right now.", "isQuestion": false, "isObservation": true },
+      { "text": "What stayed from someone who's gone?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_051",
+    "theme": "The Difficult One",
+    "perspective": "Eternal Sunshine",
+    "engagement": "soft",
+    "softOptions": ["yes", "it's complicated", "not really"],
+    "softPrompt": "Is there a person in your life who is difficult but you still care about?",
+    "closingLine": "People rarely arrive clean.",
+    "lines": [
+      { "text": "There's a person in your life who is difficult.", "isQuestion": false },
+      { "text": "Not bad.", "isQuestion": false },
+      { "text": "Hard sometimes.", "isQuestion": false },
+      { "text": "Who pushes in ways that cost you.", "isQuestion": false },
+      { "text": "Whose love comes wrapped in complications.", "isQuestion": false },
+      { "text": "And yet.", "isQuestion": false },
+      { "text": "There's more there.", "isQuestion": false },
+      { "text": "It doesn't fit neatly into the story you tell about them.", "isQuestion": false },
+      { "text": "People rarely arrive clean.", "isQuestion": false },
+      { "text": "Listen to the quality of silence around you right now.", "isQuestion": false, "isObservation": true },
+      { "text": "Is there a person like that you still care about?", "isQuestion": true, "suggestJournal": false }
+    ]
+  },
+  {
+    "key": "session_052",
+    "theme": "Saying Goodbye",
+    "perspective": "Eternal Sunshine",
+    "engagement": "none",
+    "closingLine": "But so did everything before it.",
+    "lines": [
+      { "text": "There have been endings.", "isQuestion": false },
+      { "text": "Chapters that finished.", "isQuestion": false },
+      { "text": "Relationships. Seasons. The person you were in them.", "isQuestion": false },
+      { "text": "Some of them you chose. Some happened to you.", "isQuestion": false },
+      { "text": "Some you're still not sure which one it was.", "isQuestion": false },
+      { "text": "The ones that hurt worst are the ones that were also good.", "isQuestion": false },
+      { "text": "You can't have one without the other.", "isQuestion": false },
+      { "text": "The hurt is the love with nowhere left to go.", "isQuestion": false },
+      { "text": "Let the breathing slow down a little if it can.", "isQuestion": false, "isObservation": true },
+      { "text": "The ending happened.", "isQuestion": false },
+      { "text": "But so did everything before it.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_053",
+    "theme": "The Same Argument",
+    "perspective": "Eternal Sunshine",
+    "engagement": "text",
+    "textPrompt": "A pattern in yourself you keep noticing.",
+    "closingLine": "The groove is still there. That's not the same as being stuck in it.",
+    "lines": [
+      { "text": "There's a thing you keep doing.", "isQuestion": false },
+      { "text": "You've noticed it before.", "isQuestion": false },
+      { "text": "A pattern. A groove.", "isQuestion": false },
+      { "text": "The same argument with different people.", "isQuestion": false },
+      { "text": "The same flinch when things get close.", "isQuestion": false },
+      { "text": "Or the same push when you should wait.", "isQuestion": false },
+      { "text": "It's not a flaw exactly.", "isQuestion": false },
+      { "text": "A groove worn into you.", "isQuestion": false },
+      { "text": "And the path of least resistance still runs through it.", "isQuestion": false },
+      { "text": "Blink slowly a few times. Let the eyes soften.", "isQuestion": false, "isObservation": true },
+      { "text": "What's the pattern you keep noticing in yourself?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_054",
+    "theme": "The Blue Hair",
+    "perspective": "Eternal Sunshine",
+    "engagement": "soft",
+    "softOptions": ["yes", "I used to", "working on it"],
+    "softPrompt": "Is there a part of yourself you've been hiding lately?",
+    "closingLine": "The unrepeatable thing is still in there. Getting harder to find.",
+    "lines": [
+      { "text": "Most people eventually start editing themselves.", "isQuestion": false },
+      { "text": "The edges that seem too much.", "isQuestion": false },
+      { "text": "Too loud. Too soft. Too strange. Too honest.", "isQuestion": false },
+      { "text": "They tuck them away and present something smoother.", "isQuestion": false },
+      { "text": "And it works.", "isQuestion": false },
+      { "text": "Life gets smoother.", "isQuestion": false },
+      { "text": "But something also gets quieter.", "isQuestion": false },
+      { "text": "The unrepeatable part that is only you.", "isQuestion": false },
+      { "text": "Gets a little harder to find.", "isQuestion": false },
+      { "text": "Notice the expression on the face right now. What is it?", "isQuestion": false, "isObservation": true },
+      { "text": "Is there a part of yourself you've been hiding lately?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_055",
+    "theme": "I Could Die Right Now",
+    "perspective": "Eternal Sunshine",
+    "engagement": "none",
+    "closingLine": "You've had it. More than once, probably.",
+    "lines": [
+      { "text": "There have been times where everything was exactly right.", "isQuestion": false },
+      { "text": "Not perfect. Not resolved.", "isQuestion": false },
+      { "text": "Enough.", "isQuestion": false },
+      { "text": "Where you thought: I'm happy.", "isQuestion": false },
+      { "text": "Happy without qualification.", "isQuestion": false },
+      { "text": "Not because of any achievement.", "isQuestion": false },
+      { "text": "But because the light was right.", "isQuestion": false },
+      { "text": "Or the person next to you was right.", "isQuestion": false },
+      { "text": "Or you were exactly where you were.", "isQuestion": false },
+      { "text": "Find that right now. The memory of it.", "isQuestion": false, "isObservation": true },
+      { "text": "You've had it. More than once.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_056",
+    "theme": "You Can't Change It",
+    "perspective": "Desmond",
+    "engagement": "soft",
+    "softOptions": ["yes", "trying to", "not yet"],
+    "softPrompt": "Is there something you're still trying to change that might just need accepting?",
+    "closingLine": "Some things can't be changed. Only lived with differently.",
+    "lines": [
+      { "text": "There are problems you've tried to fix that won't fix.", "isQuestion": false },
+      { "text": "Not because you haven't tried hard enough.", "isQuestion": false },
+      { "text": "But because some things have their own shape.", "isQuestion": false },
+      { "text": "You can go around again.", "isQuestion": false },
+      { "text": "Try the other door.", "isQuestion": false },
+      { "text": "Say it differently.", "isQuestion": false },
+      { "text": "And sometimes it works.", "isQuestion": false },
+      { "text": "And sometimes the cricket bat still finds you.", "isQuestion": false },
+      { "text": "The question isn't always how to change it.", "isQuestion": false },
+      { "text": "Sometimes it's, what do I do with the fact that it is what it is.", "isQuestion": false },
+      { "text": "That's not giving up. It's closer to surrender. Those aren't the same.", "isQuestion": false },
+      { "text": "Rest the hands in the lap.", "isQuestion": false, "isObservation": true },
+      { "text": "Is there something in you still waiting to be accepted instead of fixed?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_057",
+    "theme": "The Photograph",
+    "perspective": "Desmond",
+    "engagement": "text",
+    "textPrompt": "Something you're holding onto. An image. A feeling. A person.",
+    "closingLine": "What you're holding onto is telling you something.",
+    "lines": [
+      { "text": "There's something you're holding onto.", "isQuestion": false },
+      { "text": "Not badly, necessarily.", "isQuestion": false },
+      { "text": "You keep it.", "isQuestion": false },
+      { "text": "You take it out sometimes without meaning to.", "isQuestion": false },
+      { "text": "Look at it.", "isQuestion": false },
+      { "text": "Put it back.", "isQuestion": false },
+      { "text": "It might be a memory.", "isQuestion": false },
+      { "text": "A person. An older self.", "isQuestion": false },
+      { "text": "A hope that hasn't found its opening yet.", "isQuestion": false },
+      { "text": "Something you photographed once in your head and never deleted.", "isQuestion": false },
+      { "text": "Look at the palms. Really look.", "isQuestion": false, "isObservation": true },
+      { "text": "What are you holding onto?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_058",
+    "theme": "I'll Do It Right This Time",
+    "perspective": "Desmond",
+    "engagement": "none",
+    "closingLine": "You still have time. Not infinite time. But time.",
+    "lines": [
+      { "text": "You've had the thought before.", "isQuestion": false },
+      { "text": "If I could go back.", "isQuestion": false },
+      { "text": "If I'd known then.", "isQuestion": false },
+      { "text": "I'd do it differently.", "isQuestion": false },
+      { "text": "And maybe you would.", "isQuestion": false },
+      { "text": "But the you that would do it differently.", "isQuestion": false },
+      { "text": "Is only possible because of the you that didn't.", "isQuestion": false },
+      { "text": "The mistakes made the knowledge.", "isQuestion": false },
+      { "text": "The wrong turns made the map.", "isQuestion": false },
+      { "text": "You can't go back.", "isQuestion": false },
+      { "text": "But you're here right now.", "isQuestion": false },
+      { "text": "Locate that. The right now of it.", "isQuestion": false, "isObservation": true },
+      { "text": "What would doing it right look like from here?", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_059",
+    "theme": "The Course Correcting",
+    "perspective": "Desmond",
+    "engagement": "soft",
+    "softOptions": ["yes", "slowly", "I don't know how"],
+    "softPrompt": "Is there something in your life that keeps pulling you back to it?",
+    "closingLine": "It keeps finding you. You haven't finished with it yet.",
+    "lines": [
+      { "text": "There are thoughts that keep coming back.", "isQuestion": false },
+      { "text": "Thoughts. People. The same argument in a different room.", "isQuestion": false },
+      { "text": "You think you've moved past them.", "isQuestion": false },
+      { "text": "And then something small does it.", "isQuestion": false },
+      { "text": "A song. A smell. A conversation that goes a certain direction.", "isQuestion": false },
+      { "text": "And there it is again.", "isQuestion": false },
+      { "text": "This isn't the universe punishing you.", "isQuestion": false },
+      { "text": "It's more like, something unfinished.", "isQuestion": false },
+      { "text": "A thing that wants to be looked at.", "isQuestion": false },
+      { "text": "Find the heartbeat. It's been going this whole time.", "isQuestion": false, "isObservation": true },
+      { "text": "Is there anything that keeps finding you?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_060",
+    "theme": "See You In Another Life",
+    "perspective": "Desmond",
+    "engagement": "none",
+    "closingLine": "The love was real. It still is. Somewhere.",
+    "lines": [
+      { "text": "There are people you'll never see again.", "isQuestion": false },
+      { "text": "Not because anything went wrong.", "isQuestion": false },
+      { "text": "Because life moved.", "isQuestion": false },
+      { "text": "You went one direction. They went another.", "isQuestion": false },
+      { "text": "And the distance grew without anyone deciding it should.", "isQuestion": false },
+      { "text": "But you've kept one of them.", "isQuestion": false },
+      { "text": "Who they were at the best time you knew them.", "isQuestion": false },
+      { "text": "Frozen at that.", "isQuestion": false },
+      { "text": "Still whole.", "isQuestion": false },
+      { "text": "Yours in the way you knew them.", "isQuestion": false },
+      { "text": "Close the eyes for a second and find one of them.", "isQuestion": false, "isObservation": true },
+      { "text": "Let them be okay wherever they are.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_061",
+    "theme": "What's Changed",
+    "perspective": "Graduation Arc",
+    "engagement": "text",
+    "textPrompt": "Something that's quietly different about you than it was.",
+    "closingLine": "You changed without noticing. That's usually how.",
+    "lines": [
+      { "text": "Something has moved.", "isQuestion": false },
+      { "text": "Not in any way you could point to and explain.", "isQuestion": false },
+      { "text": "But something has shifted.", "isQuestion": false },
+      { "text": "The thought that used to run the whole day.", "isQuestion": false },
+      { "text": "What you used to ignore that you can now locate.", "isQuestion": false },
+      { "text": "Change doesn't announce itself.", "isQuestion": false },
+      { "text": "It shows up one day and you realize it's been there a while.", "isQuestion": false },
+      { "text": "Notice if anything has shifted since you opened this.", "isQuestion": false, "isObservation": true },
+      { "text": "What's quietly shifted in you?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_062",
+    "theme": "The Noise Is Still There",
+    "perspective": "Graduation Arc",
+    "engagement": "none",
+    "closingLine": "There it is.",
+    "lines": [
+      { "text": "The noise didn't go away.", "isQuestion": false },
+      { "text": "The feed is still there.", "isQuestion": false },
+      { "text": "The world is still loud and fast and full of other people's urgencies.", "isQuestion": false },
+      { "text": "But where you stand inside it has shifted.", "isQuestion": false },
+      { "text": "There's a place you can get to now.", "isQuestion": false },
+      { "text": "A clearing.", "isQuestion": false },
+      { "text": "Where you can find yourself underneath all of it.", "isQuestion": false },
+      { "text": "You didn't get there by removing the noise.", "isQuestion": false },
+      { "text": "You got there by finding the quieter part of yourself.", "isQuestion": false },
+      { "text": "Go to that place right now.", "isQuestion": false, "isObservation": true },
+      { "text": "There it is.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_063",
+    "theme": "What You Know Now",
+    "perspective": "Graduation Arc",
+    "engagement": "text",
+    "textPrompt": "One thing you know about yourself now that you didn't before.",
+    "closingLine": "Most people spend whole lifetimes not getting there.",
+    "lines": [
+      { "text": "You know yourself better now.", "isQuestion": false },
+      { "text": "In ways you either didn't know before.", "isQuestion": false },
+      { "text": "Or knew but hadn't quite admitted.", "isQuestion": false },
+      { "text": "How you get when you're tired versus when you're sad.", "isQuestion": false },
+      { "text": "What you need versus what you say you need.", "isQuestion": false },
+      { "text": "What reliably brings you back.", "isQuestion": false },
+      { "text": "What reliably takes it away.", "isQuestion": false },
+      { "text": "These are not small.", "isQuestion": false },
+      { "text": "Most people spend whole lifetimes not getting there.", "isQuestion": false },
+      { "text": "Notice how the quiet changes when you're in it willingly.", "isQuestion": false, "isObservation": true },
+      { "text": "What do you know now that you didn't?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_064",
+    "theme": "The Body That Carried You",
+    "perspective": "Graduation Arc",
+    "engagement": "none",
+    "closingLine": "It continued anyway.",
+    "lines": [
+      { "text": "There's a running list of what people never thank themselves for.", "isQuestion": false },
+      { "text": "Not the dramatic gestures.", "isQuestion": false },
+      { "text": "The continuous ones.", "isQuestion": false },
+      { "text": "The heart that kept going through a Tuesday when they were twenty-three and miserable.", "isQuestion": false },
+      { "text": "The lungs on a bad night.", "isQuestion": false },
+      { "text": "The back that held.", "isQuestion": false },
+      { "text": "Press a palm to the chest. Notice what's happening.", "isQuestion": false, "isObservation": true },
+      { "text": "People are hard on it.", "isQuestion": false },
+      { "text": "Most of them are.", "isQuestion": false },
+      { "text": "It continued anyway.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_065",
+    "theme": "The People Who Stayed",
+    "perspective": "Graduation Arc",
+    "engagement": "text",
+    "textPrompt": "Someone who stayed when they didn't have to.",
+    "closingLine": "Just — stayed.",
+    "lines": [
+      { "text": "Some people stayed.", "isQuestion": false },
+      { "text": "Not because they had to.", "isQuestion": false },
+      { "text": "They had the option to go.", "isQuestion": false },
+      { "text": "And they chose to stay.", "isQuestion": false },
+      { "text": "Through the you that was harder to love.", "isQuestion": false },
+      { "text": "Through the times you weren't your best.", "isQuestion": false },
+      { "text": "Through the long stretches where nothing dramatic was happening.", "isQuestion": false },
+      { "text": "And stayed.", "isQuestion": false },
+      { "text": "Hold the name of whoever comes to mind right now.", "isQuestion": false, "isObservation": true },
+      { "text": "Who stayed when they didn't have to?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_066",
+    "theme": "Almost Time",
+    "perspective": "Graduation Arc",
+    "engagement": "none",
+    "closingLine": "Something quiet and theirs.",
+    "lines": [
+      { "text": "Most people never stop.", "isQuestion": false },
+      { "text": "They move from one task to the next.", "isQuestion": false },
+      { "text": "Task to task. Screen to screen.", "isQuestion": false },
+      { "text": "Never stop long enough to hear anything.", "isQuestion": false },
+      { "text": "But some people do.", "isQuestion": false },
+      { "text": "Seven minutes. Again and again.", "isQuestion": false },
+      { "text": "Not because someone assigned it.", "isQuestion": false },
+      { "text": "Because they kept coming back.", "isQuestion": false },
+      { "text": "Run the hands along the forearms once. Still here.", "isQuestion": false, "isObservation": true },
+      { "text": "They built a practice in the stopping.", "isQuestion": false },
+      { "text": "Something quiet and theirs.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_067",
+    "theme": "What You Were Looking For",
+    "perspective": "Graduation Arc",
+    "engagement": "text",
+    "textPrompt": "What were you looking for when you started this?",
+    "closingLine": "You might have found something that wasn't on the list.",
+    "lines": [
+      { "text": "When you started this you were after something.", "isQuestion": false },
+      { "text": "Maybe you knew what it was.", "isQuestion": false },
+      { "text": "Maybe you only knew something was covered.", "isQuestion": false },
+      { "text": "Something was loud when it should have been quiet.", "isQuestion": false },
+      { "text": "Something was missing or muffled or too far away.", "isQuestion": false },
+      { "text": "You came here because of that.", "isQuestion": false },
+      { "text": "And it's worth asking, did you find it?", "isQuestion": false },
+      { "text": "Or something else.", "isQuestion": false },
+      { "text": "Or a thing that wasn't on the list.", "isQuestion": false },
+      { "text": "Look around the space you're in.", "isQuestion": false, "isObservation": true },
+      { "text": "What were you looking for when you started?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_068",
+    "theme": "The Things You Wrote",
+    "perspective": "Graduation Arc",
+    "engagement": "none",
+    "closingLine": "This is what it is.",
+    "lines": [
+      { "text": "If you wrote anything here.", "isQuestion": false },
+      { "text": "Those words were true when you wrote them.", "isQuestion": false },
+      { "text": "True ones. Particular ones.", "isQuestion": false },
+      { "text": "A memory. A name. Something that didn't have words yet.", "isQuestion": false },
+      { "text": "You probably don't remember all of it.", "isQuestion": false },
+      { "text": "But it happened.", "isQuestion": false },
+      { "text": "You showed up and you put something down.", "isQuestion": false },
+      { "text": "In the dark or the quiet or the end of a hard day.", "isQuestion": false },
+      { "text": "Stay with that for a second. That.", "isQuestion": false, "isObservation": true },
+      { "text": "You said, this is what I think.", "isQuestion": false },
+      { "text": "This is what it is.", "isQuestion": false }
+    ]
+  },
+  {
+    "key": "session_069",
+    "theme": "Ready",
+    "perspective": "Graduation Arc",
+    "engagement": "soft",
+    "softOptions": ["yes", "almost", "I think so"],
+    "softPrompt": "Do you feel different than when you started?",
+    "closingLine": "You know the way back now.",
+    "lines": [
+      { "text": "There's a quiet you can find now.", "isQuestion": false },
+      { "text": "Without this.", "isQuestion": false },
+      { "text": "You've been here often enough.", "isQuestion": false },
+      { "text": "That you know where it lives.", "isQuestion": false },
+      { "text": "It's not in an app.", "isQuestion": false },
+      { "text": "It was never in an app.", "isQuestion": false },
+      { "text": "It's in the second when you stop.", "isQuestion": false },
+      { "text": "And breathe.", "isQuestion": false },
+      { "text": "And notice you're still there.", "isQuestion": false },
+      { "text": "You can do that anywhere now.", "isQuestion": false },
+      { "text": "On a train. In a line. In the middle of a hard day.", "isQuestion": false },
+      { "text": "Notice that right now. The knowing of it.", "isQuestion": false, "isObservation": true },
+      { "text": "Do you feel different than when you started?", "isQuestion": true, "suggestJournal": true }
+    ]
+  },
+  {
+    "key": "session_070",
+    "theme": "The Last One",
+    "perspective": "Graduation Arc",
+    "engagement": "none",
+    "closingLine": "Yours.",
+    "lines": [
+      { "text": "This is my last one with you.", "isQuestion": false },
+      { "text": "Not because I failed or you failed.", "isQuestion": false },
+      { "text": "Not because you're fixed.", "isQuestion": false },
+      { "text": "There's no fixed.", "isQuestion": false },
+      { "text": "Because you've done this often enough.", "isQuestion": false },
+      { "text": "That you don't need to keep coming back.", "isQuestion": false },
+      { "text": "You know the path.", "isQuestion": false },
+      { "text": "You knew it before this.", "isQuestion": false },
+      { "text": "You needed a place quiet enough to remember.", "isQuestion": false },
+      { "text": "Look at where you are right now.", "isQuestion": false, "isObservation": true },
+      { "text": "Inside your heart or outside it all.", "isQuestion": false },
+      { "text": "Really look.", "isQuestion": false },
+      { "text": "You know... I won't be able to like feel that.", "isQuestion": false },
+      { "text": "So I want you to feel it for me.", "isQuestion": false }
+    ]
+  }
+]

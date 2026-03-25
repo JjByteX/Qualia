@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0D0D"
+    android:paddingHorizontal="40dp">
+
+    <TextView
+        android:id="@+id/txtGreeting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="You're here."
+        android:textColor="#F5F0E8"
+        android:textSize="22sp"
+        android:fontFamily="@font/lora"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="begin session"
+        android:textColor="#A89880"
+        android:textSize="14sp"
+        android:letterSpacing="0.2"
+        android:fontFamily="@font/lora"
+        android:alpha="0"
+        android:paddingTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/txtGreeting"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/btnJournal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="journal"
+        android:textColor="#6B6560"
+        android:textSize="13sp"
+        android:letterSpacing="0.2"
+        android:fontFamily="@font/lora"
+        android:alpha="0"
+        android:paddingTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/btnStart"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#2A2A2A"
+        android:textSize="11sp"
+        android:fontFamily="@font/lora"
+        android:letterSpacing="0.15"
+        android:alpha="0"
+        android:paddingBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
