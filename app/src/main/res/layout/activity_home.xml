@@ -49,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@id/btnStart"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <!-- Session counter — subtle, bottom-right -->
     <TextView
         android:id="@+id/txtCount"
         android:layout_width="wrap_content"
@@ -61,5 +62,35 @@
         android:paddingBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Sound toggle — bottom-left -->
+    <TextView
+        android:id="@+id/btnMute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sound on"
+        android:textColor="#2A2A2A"
+        android:textSize="11sp"
+        android:fontFamily="@font/lora"
+        android:letterSpacing="0.15"
+        android:alpha="0"
+        android:paddingBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Voice toggle — sits just below sound toggle -->
+    <TextView
+        android:id="@+id/btnVoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="voice off"
+        android:textColor="#2A2A2A"
+        android:textSize="11sp"
+        android:fontFamily="@font/lora"
+        android:letterSpacing="0.15"
+        android:alpha="0"
+        android:paddingBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

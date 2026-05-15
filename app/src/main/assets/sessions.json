@@ -7,7 +7,7 @@
     "lines": [
       { "text": "You woke up and the day started.", "isQuestion": false },
       { "text": "You moved through it. Talked to people, or stood near them, which isn't the same thing.", "isQuestion": false },
-      { "text": "At some point you were outside. At some point you were not.", "isQuestion": false },
+      { "text": "At some point you were outside. At some point you weren't.", "isQuestion": false },
       { "text": "Most of it ran without you deciding it.", "isQuestion": false },
       { "text": "Now you're at the end of it, and it only exists as thought.", "isQuestion": false },
       { "text": "What do you remember first from this morning?", "isQuestion": true, "suggestJournal": true }
@@ -21,11 +21,11 @@
     "lines": [
       { "text": "There are people on the street right now having the worst day of their life.", "isQuestion": false },
       { "text": "Not dramatically.", "isQuestion": false },
-      { "text": "The specific kind of bad that doesn't show.", "isQuestion": false },
+      { "text": "The type or kind of bad that doesn't show.", "isQuestion": false },
       { "text": "You passed some of them today.", "isQuestion": false },
-      { "text": "The wind hit your face at some point.", "isQuestion": false },
-      { "text": "An orange that was slightly too ripe.", "isQuestion": false },
-      { "text": "A door you held for a person who didn't say anything.", "isQuestion": false },
+      { "text": "And the wind hit your face at some point.", "isQuestion": false },
+      { "text": "Or an orange that was slightly too ripe.", "isQuestion": false },
+      { "text": "Or a door you held for a person who didn't say anything.", "isQuestion": false },
       { "text": "All of it arrived before you had a name for it.", "isQuestion": false },
       { "text": "Press the back into whatever is behind you right now.", "isQuestion": false, "isObservation": true },
       { "text": "Most of it got filed away.", "isQuestion": false },
@@ -105,13 +105,13 @@
     "perspective": "Nine Days",
     "closingLine": "Still moving around.",
     "lines": [
-      { "text": "You use words you didn't come up with.", "isQuestion": false },
+      { "text": "You use such words you didn't come up with.", "isQuestion": false },
       { "text": "You make a face when you're thinking that you learned from watching another person make it.", "isQuestion": false },
-      { "text": "How you laugh — that started in someone else's laugh.", "isQuestion": false },
+      { "text": "How you laugh and that started in someone else's laugh.", "isQuestion": false },
       { "text": "The people who gave you those are not in the room.", "isQuestion": false },
       { "text": "Some of them you haven't spoken to in years.", "isQuestion": false },
       { "text": "Some of them you never thanked.", "isQuestion": false },
-      { "text": "Blink slowly. Let the eyes go soft.", "isQuestion": false, "isObservation": true },
+      { "text": "Blink slowly. I want you to remember for a bit.", "isQuestion": false, "isObservation": true },
       { "text": "They're in there though.", "isQuestion": false },
       { "text": "Who comes to mind?", "isQuestion": true, "suggestJournal": true }
     ]
@@ -122,11 +122,10 @@
     "perspective": "Nine Days",
     "closingLine": "That exact thing.",
     "lines": [
-      { "text": "There will be people who never get to have a Tuesday like yours.", "isQuestion": false },
+      { "text": "There will be people who never get to have a Saturday like yours.", "isQuestion": false },
       { "text": "Not the good parts.", "isQuestion": false },
       { "text": "All of it.", "isQuestion": false },
-      { "text": "The commute.", "isQuestion": false },
-      { "text": "What you ate standing up because there wasn't time.", "isQuestion": false },
+      { "text": "The food and the sleep.", "isQuestion": false },
       { "text": "The way your pillow holds your head by now.", "isQuestion": false },
       { "text": "The low hum you've stopped registering.", "isQuestion": false },
       { "text": "They've watched it through a screen and they know every detail.", "isQuestion": false },
@@ -192,11 +191,11 @@
       { "text": "Not bad ones necessarily.", "isQuestion": false },
       { "text": "Ones that have been running long enough to make a groove.", "isQuestion": false },
       { "text": "You can put them down.", "isQuestion": false },
-      { "text": "The floor is fine. The counter. Wherever the hands are right now.", "isQuestion": false },
-      { "text": "They won't go anywhere.", "isQuestion": false },
-      { "text": "Unclench the hands if they're clenched. Open them.", "isQuestion": false, "isObservation": true },
+      { "text": "The sky is nice.", "isQuestion": false },
+      { "text": "And I think they won't go anywhere.", "isQuestion": false },
+      { "text": "Do you see them?", "isQuestion": false, "isObservation": true },
       { "text": "They'll be there if you want them later.", "isQuestion": false },
-      { "text": "Most of the time you won't.", "isQuestion": false }
+      { "text": "But half of the time you won't.", "isQuestion": false }
     ]
   },
   {
@@ -212,7 +211,7 @@
       { "text": "Something you said that you haven't settled.", "isQuestion": false },
       { "text": "That's the shape of it right now.", "isQuestion": false },
       { "text": "Look at the ceiling for a second. Then come back.", "isQuestion": false, "isObservation": true },
-      { "text": "What's open right now?", "isQuestion": true, "suggestJournal": true }
+      { "text": "What's going on right now?", "isQuestion": true, "suggestJournal": true }
     ]
   },
   {
@@ -258,12 +257,12 @@
       { "text": "Some days you drift a little.", "isQuestion": false },
       { "text": "Not far.", "isQuestion": false },
       { "text": "A few degrees off from yourself.", "isQuestion": false },
-      { "text": "You're still doing the things.", "isQuestion": false },
+      { "text": "You're still doing some of the same things.", "isQuestion": false },
       { "text": "Moving through the rooms.", "isQuestion": false },
       { "text": "Saying the right words at the right times.", "isQuestion": false },
       { "text": "But an hour ago, or three, you left yourself sitting with one thought.", "isQuestion": false },
       { "text": "And you never quite came back.", "isQuestion": false },
-      { "text": "Press down into whatever you're sitting on. Notice the resistance.", "isQuestion": false, "isObservation": true },
+      { "text": "Press down into whatever you're sitting on. Do you see the resistance?", "isQuestion": false, "isObservation": true },
       { "text": "That thought you left yourself with.", "isQuestion": false },
       { "text": "It's there.", "isQuestion": false },
       { "text": "Waiting.", "isQuestion": false }
@@ -279,15 +278,14 @@
     "lines": [
       { "text": "There's something you do where time goes.", "isQuestion": false },
       { "text": "Not a career. Not an obligation.", "isQuestion": false },
-      { "text": "A thing.", "isQuestion": false },
+      { "text": "A thing. I don't know.", "isQuestion": false },
       { "text": "You start and then you look up and an hour has passed.", "isQuestion": false },
       { "text": "Not because you were distracted.", "isQuestion": false },
       { "text": "Because you were completely in.", "isQuestion": false },
       { "text": "Most of the day asks you to be partially elsewhere.", "isQuestion": false },
       { "text": "Planning what's next. Monitoring how it's going.", "isQuestion": false },
       { "text": "But not that.", "isQuestion": false },
-      { "text": "Notice if the shoulders are up. Let them drop.", "isQuestion": false, "isObservation": true },
-      { "text": "What's yours?", "isQuestion": true, "suggestJournal": true }
+      { "text": "I wonder what mine is.", "isQuestion": true, "suggestJournal": true }
     ]
   },
   {
@@ -304,8 +302,8 @@
       { "text": "Most of what you experience now comes with a history.", "isQuestion": false },
       { "text": "A previous time. An expectation.", "isQuestion": false },
       { "text": "You taste it and you're also tasting every time you've tasted it before.", "isQuestion": false },
-      { "text": "Run the tongue along the teeth once. The mouth is here.", "isQuestion": false, "isObservation": true },
-      { "text": "Part of today had never happened before.", "isQuestion": false },
+      { "text": "Even now, there’s a taste you weren’t paying attention to", "isQuestion": false, "isObservation": true },
+      { "text": "That part of today had never happened before.", "isQuestion": false },
       { "text": "You moved through it too fast to notice.", "isQuestion": false }
     ]
   },
@@ -318,14 +316,14 @@
     "closingLine": "What would yours be?",
     "lines": [
       { "text": "If you only got one.", "isQuestion": false },
-      { "text": "One human moment to keep.", "isQuestion": false },
-      { "text": "Not a milestone. Not an achievement.", "isQuestion": false },
-      { "text": "One thing.", "isQuestion": false },
+      { "text": "One moment to keep.", "isQuestion": false },
+      { "text": "Not a big event. Not an achievement.", "isQuestion": false },
+      { "text": "Just one moment.", "isQuestion": false },
       { "text": "The light at a certain hour in a place you can name.", "isQuestion": false },
       { "text": "A voice when the person didn't know you were listening.", "isQuestion": false },
       { "text": "The temperature of a car in December.", "isQuestion": false },
       { "text": "A dog asleep on the floor in the middle of everything.", "isQuestion": false },
-      { "text": "Close the eyes. Find one.", "isQuestion": false, "isObservation": true },
+      { "text": "Close your eyes. Find one.", "isQuestion": false, "isObservation": true },
       { "text": "What would yours be?", "isQuestion": true, "suggestJournal": true }
     ]
   },
@@ -365,11 +363,10 @@
       { "text": "And you choose to do it anyway.", "isQuestion": false },
       { "text": "Not because you've figured out how to make it different.", "isQuestion": false },
       { "text": "Just because.", "isQuestion": false },
-      { "text": "That's not naivety.", "isQuestion": false },
-      { "text": "It's something else.", "isQuestion": false },
-      { "text": "Closer to stubbornness. Or hope. Hard to say.", "isQuestion": false },
-      { "text": "Put a hand on the chest. Notice it going.", "isQuestion": false, "isObservation": true },
-      { "text": "Is there anything you're choosing anyway?", "isQuestion": true, "suggestJournal": true }
+      { "text": "It isn't that you don't see it.", "isQuestion": false },
+      { "text": "You do.", "isQuestion": false },
+      { "text": "Something in you just keeps going.", "isQuestion": false },
+      { "text": "Is there anything you're still choosing anyway?", "isQuestion": true, "suggestJournal": true }
     ]
   },
   {
@@ -385,9 +382,9 @@
       { "text": "They become the answer to a question you haven't said out loud.", "isQuestion": false },
       { "text": "The actual person, the one with a bad day and their own confusion and their own needs,", "isQuestion": false },
       { "text": "starts to blur.", "isQuestion": false },
-      { "text": "Notice the weight of the arms right now. Still here.", "isQuestion": false, "isObservation": true },
+      { "text": "Notice the weight of your arms right now. Still here.", "isQuestion": false, "isObservation": true },
       { "text": "You can't give a person a role they didn't audition for.", "isQuestion": false },
-      { "text": "They'll be themselves.", "isQuestion": false }
+      { "text": "Because they'll be themselves.", "isQuestion": false }
     ]
   },
   {
@@ -503,15 +500,15 @@
     "closingLine": "You were happy in a way that's hard to explain now.",
     "lines": [
       { "text": "There's a memory that's good.", "isQuestion": false },
-      { "text": "Genuinely good.", "isQuestion": false },
+      { "text": "Genuinely nice.", "isQuestion": false },
       { "text": "And it still hurts somehow.", "isQuestion": false },
-      { "text": "Not because anything went wrong in it.", "isQuestion": false },
-      { "text": "But because it's finished.", "isQuestion": false },
+      { "text": "Nothing went wrong in it.", "isQuestion": false },
+      { "text": "But the feeling that it's finished.", "isQuestion": false },
       { "text": "Because the you in that memory didn't know yet what was coming.", "isQuestion": false },
       { "text": "Or because the people in it are different now.", "isQuestion": false },
       { "text": "Or gone.", "isQuestion": false },
       { "text": "Or because that happiness hasn't come around again.", "isQuestion": false },
-      { "text": "Notice if there's tightness in the chest. Breathe into it slowly.", "isQuestion": false, "isObservation": true },
+      { "text": "Breathe into this moment slowly and feel.", "isQuestion": false, "isObservation": true },
       { "text": "That memory. What is it?", "isQuestion": true, "suggestJournal": true }
     ]
   },
@@ -570,9 +567,7 @@
       { "text": "A love you've kept private because it seems unexplainable.", "isQuestion": false },
       { "text": "Those parts don't make you strange.", "isQuestion": false },
       { "text": "They make you a person.", "isQuestion": false },
-      { "text": "Touch the inside of the forearm. Notice the temperature.", "isQuestion": false, "isObservation": true },
-      { "text": "One detail about yourself that almost nobody knows.", "isQuestion": true, "suggestJournal": true }
-    ]
+      { "text": "What’s one detail about yourself that almost nobody knows?", "isQuestion": true, "suggestJournal": true }    ]
   },
   {
     "key": "session_033",
@@ -622,14 +617,14 @@
     "engagement": "none",
     "closingLine": "Even here.",
     "lines": [
-      { "text": "You've been measuring for a long time.", "isQuestion": false },
+      { "text": "You've been calculating for a long time.", "isQuestion": false },
       { "text": "Enough at work. Enough for the people you love.", "isQuestion": false },
       { "text": "Enough in your own head, which is the hardest one.", "isQuestion": false },
-      { "text": "The bar moves.", "isQuestion": false },
+      { "text": "The world moves.", "isQuestion": false },
       { "text": "You reach somewhere and there's another one waiting.", "isQuestion": false },
       { "text": "It has been moving for a long time. Maybe forever.", "isQuestion": false },
       { "text": "Take one slow breath. Just one.", "isQuestion": false, "isObservation": true },
-      { "text": "The measuring doesn't stop when you tell it to.", "isQuestion": false },
+      { "text": "The calculating doesn't stop when you tell it to.", "isQuestion": false },
       { "text": "You're doing it right now.", "isQuestion": false },
       { "text": "Even here.", "isQuestion": false }
     ]
@@ -650,8 +645,8 @@
       { "text": "But stop on it for a second.", "isQuestion": false },
       { "text": "You tasted something today.", "isQuestion": false },
       { "text": "Tasted it properly.", "isQuestion": false },
-      { "text": "Run the tongue over the teeth once. Notice the mouth exists.", "isQuestion": false, "isObservation": true },
-      { "text": "Did anything taste like something today?", "isQuestion": true, "suggestJournal": false }
+      { "text": "For a moment, it was just that.", "isQuestion": false, "isObservation": true },
+      { "text": "Did anything actually taste like something today?", "isQuestion": true, "suggestJournal": false }
     ]
   },
   {
@@ -667,7 +662,7 @@
       { "text": "Not the one rehearsing the conversation.", "isQuestion": false },
       { "text": "The temperature difference between you and the air.", "isQuestion": false },
       { "text": "That's it.", "isQuestion": false },
-      { "text": "Find the air on the backs of the hands.", "isQuestion": false, "isObservation": true },
+      { "text": "Find the air.", "isQuestion": false, "isObservation": true },
       { "text": "It was always there.", "isQuestion": false }
     ]
   },
@@ -680,8 +675,8 @@
     "closingLine": "You haven't given it a name. That's probably fine.",
     "lines": [
       { "text": "People spend a lot of time looking for their purpose.", "isQuestion": false },
-      { "text": "The big one. The reason.", "isQuestion": false },
-      { "text": "Like life is a job interview and you need a good answer.", "isQuestion": false },
+      { "text": "The big big one. The reason.", "isQuestion": false },
+      { "text": "Like life is a job interview and you need to work hard for that really good answer.", "isQuestion": false },
       { "text": "But there's another category.", "isQuestion": false },
       { "text": "Not what you fantasize about becoming. Not a career.", "isQuestion": false },
       { "text": "An activity that makes you stop and notice you're doing it.", "isQuestion": false },
@@ -699,7 +694,7 @@
     "lines": [
       { "text": "You walked today without thinking about how.", "isQuestion": false },
       { "text": "Left foot. Right foot. Like a wave the body doesn't think about.", "isQuestion": false },
-      { "text": "The whole machinery of it running without you.", "isQuestion": false },
+      { "text": "The whole thingy of it running without you.", "isQuestion": false },
       { "text": "Your legs running a program you spent a year writing.", "isQuestion": false },
       { "text": "While you were somewhere else entirely.", "isQuestion": false },
       { "text": "Probably in a conversation that never happened.", "isQuestion": false },
@@ -720,7 +715,7 @@
       { "text": "It doesn't wait for you to be ready.", "isQuestion": false },
       { "text": "It arrives.", "isQuestion": false },
       { "text": "A song from down the hall. A voice coming through a wall.", "isQuestion": false },
-      { "text": "The sound of rain on a specific surface.", "isQuestion": false },
+      { "text": "The sound of rain on a the roof.", "isQuestion": false },
       { "text": "Someone laughing loud enough to travel.", "isQuestion": false },
       { "text": "These sounds register before you've decided what to do with them.", "isQuestion": false },
       { "text": "That's the honest response. Before the labeling starts.", "isQuestion": false },
@@ -818,7 +813,7 @@
     "closingLine": "The Tuesday parts too.",
     "lines": [
       { "text": "People spend a lot of time building toward a life they can recognize as significant.", "isQuestion": false },
-      { "text": "They skip the in-between.", "isQuestion": false },
+      { "text": "Many times, they skip the in-between.", "isQuestion": false },
       { "text": "Not in pain right now. That's a Tuesday morning. Doesn't get counted.", "isQuestion": false },
       { "text": "Enough light to read by. Doesn't get counted.", "isQuestion": false },
       { "text": "A place that's theirs, with their particular arrangement of objects.", "isQuestion": false },
@@ -859,9 +854,9 @@
     "lines": [
       { "text": "When you love someone you remember specific details.", "isQuestion": false },
       { "text": "Not general ones.", "isQuestion": false },
-      { "text": "Specific ones.", "isQuestion": false },
+      { "text": "Maybe random ones.", "isQuestion": false },
       { "text": "The way they laugh before the laugh actually comes out.", "isQuestion": false },
-      { "text": "What their hands look like when they're thinking.", "isQuestion": false },
+      { "text": "What their face look like when they're thinking.", "isQuestion": false },
       { "text": "The sound of them moving around in another room.", "isQuestion": false },
       { "text": "The exact pressure of being in the same space.", "isQuestion": false },
       { "text": "Nobody puts those in the eulogy.", "isQuestion": false },
@@ -904,8 +899,7 @@
       { "text": "Where you were both there.", "isQuestion": false },
       { "text": "Not needing it to be anything other than what it was.", "isQuestion": false },
       { "text": "Maybe you were looking up at the stars.", "isQuestion": false },
-      { "text": "Maybe sitting in a car.", "isQuestion": false },
-      { "text": "Maybe in a room with the right light.", "isQuestion": false },
+      { "text": "Maybe sitting outside on a bench.", "isQuestion": false },
       { "text": "And you thought, I could stay here.", "isQuestion": false },
       { "text": "Look up at the ceiling above you for a second.", "isQuestion": false, "isObservation": true },
       { "text": "You've had that.", "isQuestion": false },
@@ -922,7 +916,7 @@
     "lines": [
       { "text": "People leave traces.", "isQuestion": false },
       { "text": "Even when they're gone.", "isQuestion": false },
-      { "text": "A phrase they used that you caught yourself saying.", "isQuestion": false },
+      { "text": "A sentence they used that you caught yourself saying.", "isQuestion": false },
       { "text": "A song they showed you that's yours now.", "isQuestion": false },
       { "text": "There's something they taught you to look at that you can't unsee.", "isQuestion": false },
       { "text": "You can't choose which pieces stay.", "isQuestion": false },
@@ -985,14 +979,14 @@
     "lines": [
       { "text": "There's a thing you keep doing.", "isQuestion": false },
       { "text": "You've noticed it before.", "isQuestion": false },
-      { "text": "A pattern. A groove.", "isQuestion": false },
+      { "text": "A pattern.", "isQuestion": false },
       { "text": "The same argument with different people.", "isQuestion": false },
       { "text": "The same flinch when things get close.", "isQuestion": false },
       { "text": "Or the same push when you should wait.", "isQuestion": false },
       { "text": "It's not a flaw exactly.", "isQuestion": false },
-      { "text": "A groove worn into you.", "isQuestion": false },
+      { "text": "A pattern worn into you.", "isQuestion": false },
       { "text": "And the path of least resistance still runs through it.", "isQuestion": false },
-      { "text": "Blink slowly a few times. Let the eyes soften.", "isQuestion": false, "isObservation": true },
+      { "text": "Blink slowly 3 times. Let the eyes soften.", "isQuestion": false, "isObservation": true },
       { "text": "What's the pattern you keep noticing in yourself?", "isQuestion": true, "suggestJournal": true }
     ]
   },
@@ -1014,7 +1008,7 @@
       { "text": "But something also gets quieter.", "isQuestion": false },
       { "text": "The unrepeatable part that is only you.", "isQuestion": false },
       { "text": "Gets a little harder to find.", "isQuestion": false },
-      { "text": "Notice the expression on the face right now. What is it?", "isQuestion": false, "isObservation": true },
+      { "text": "Notice the expression on your face right now. What is it?", "isQuestion": false, "isObservation": true },
       { "text": "Is there a part of yourself you've been hiding lately?", "isQuestion": true, "suggestJournal": true }
     ]
   },
@@ -1027,15 +1021,15 @@
     "lines": [
       { "text": "There have been times where everything was exactly right.", "isQuestion": false },
       { "text": "Not perfect. Not resolved.", "isQuestion": false },
-      { "text": "Enough.", "isQuestion": false },
-      { "text": "Where you thought: I'm happy.", "isQuestion": false },
+      { "text": "Sometimes. It is just enough.", "isQuestion": false },
+      { "text": "Where you thought: I'm really happy.", "isQuestion": false },
       { "text": "Happy without qualification.", "isQuestion": false },
-      { "text": "Not because of any achievement.", "isQuestion": false },
+      { "text": "It wasn't because of any of your achievements.", "isQuestion": false },
       { "text": "But because the light was right.", "isQuestion": false },
       { "text": "Or the person next to you was right.", "isQuestion": false },
       { "text": "Or you were exactly where you were.", "isQuestion": false },
       { "text": "Find that right now. The memory of it.", "isQuestion": false, "isObservation": true },
-      { "text": "You've had it. More than once.", "isQuestion": false }
+      { "text": "You've had it more than once. Smile.", "isQuestion": false }
     ]
   },
   {
@@ -1054,11 +1048,11 @@
       { "text": "Try the other door.", "isQuestion": false },
       { "text": "Say it differently.", "isQuestion": false },
       { "text": "And sometimes it works.", "isQuestion": false },
-      { "text": "And sometimes the cricket bat still finds you.", "isQuestion": false },
+      { "text": "And sometimes it hits the same place again.", "isQuestion": false },
       { "text": "The question isn't always how to change it.", "isQuestion": false },
       { "text": "Sometimes it's, what do I do with the fact that it is what it is.", "isQuestion": false },
       { "text": "That's not giving up. It's closer to surrender. Those aren't the same.", "isQuestion": false },
-      { "text": "Rest the hands in the lap.", "isQuestion": false, "isObservation": true },
+      { "text": "Rest but think.", "isQuestion": false, "isObservation": true },
       { "text": "Is there something in you still waiting to be accepted instead of fixed?", "isQuestion": true, "suggestJournal": true }
     ]
   },
@@ -1305,7 +1299,7 @@
       { "text": "You showed up and you put something down.", "isQuestion": false },
       { "text": "In the dark or the quiet or the end of a hard day.", "isQuestion": false },
       { "text": "Stay with that for a second. That.", "isQuestion": false, "isObservation": true },
-      { "text": "You said, this is what I think.", "isQuestion": false },
+      { "text": "You said, this is what I wrote and this is what I think.", "isQuestion": false },
       { "text": "This is what it is.", "isQuestion": false }
     ]
   },
@@ -1352,7 +1346,7 @@
       { "text": "Look at where you are right now.", "isQuestion": false, "isObservation": true },
       { "text": "Inside your heart or outside it all.", "isQuestion": false },
       { "text": "Really look.", "isQuestion": false },
-      { "text": "You know... I won't be able to like feel that.", "isQuestion": false },
+      { "text": "You know... I won't be able to feel like that.", "isQuestion": false },
       { "text": "So I want you to feel it for me.", "isQuestion": false }
     ]
   }

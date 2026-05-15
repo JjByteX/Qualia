@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Single journal entry detail — single-paper model.
+
+    The whole screen is one warm cream paper page, just like the journal write
+    screen. The date sits in the upper area as a quiet caption; the body text
+    fills the page; any attached drawings overlay the text in the same z-order
+    they had when the user wrote the entry.
+-->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D0D0D"
-    android:paddingHorizontal="40dp">
+    android:background="@drawable/paper_background">
 
     <TextView
         android:id="@+id/btnBack"
@@ -15,9 +22,32 @@
         android:textColor="#6B6560"
         android:textSize="20sp"
         android:fontFamily="@font/lora"
+        android:paddingHorizontal="20dp"
         android:paddingTop="24dp"
+        android:paddingBottom="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
+    <!--
+        Edit affordance. Visible only for entries written today (the edit
+        window). Tapping re-opens the entry in JournalActivity in write mode;
+        the save flow there overwrites the entry while keeping its createdAt.
+    -->
+    <TextView
+        android:id="@+id/btnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="still today"
+        android:textColor="#8A7E70"
+        android:textSize="12sp"
+        android:fontFamily="@font/lora"
+        android:letterSpacing="0.06"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="12dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/txtDate"
@@ -27,21 +57,90 @@
         android:textSize="11sp"
         android:fontFamily="@font/lora"
         android:letterSpacing="0.1"
-        android:paddingTop="24dp"
+        android:gravity="center"
+        android:paddingTop="28dp"
+        android:paddingBottom="6dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toEndOf="@id/btnBack"
+        app:layout_constraintEnd_toStartOf="@id/btnEdit"/>
 
-    <TextView
-        android:id="@+id/txtEntryBody"
+    <!-- Page area: time-of-day tint at the back, body text mid, drawings and
+         polaroids overlaid on top via attachmentsContainer. The DrawingView
+         used for stroke-replay sits at the very top of the stack.
+
+         The let-it-go gesture fades pageFrame's alpha while the user holds
+         down the bottom caption. It is constrained above btnLetGo so the
+         caption remains untouched (and tappable) during the fade. -->
+    <FrameLayout
+        android:id="@+id/pageFrame"
         android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingHorizontal="32dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:layout_constraintBottom_toTopOf="@id/btnLetGo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:id="@+id/timeTint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/txtEntryBody"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#3D332B"
+            android:textSize="16sp"
+            android:fontFamily="@font/lora"
+            android:lineSpacingExtra="10dp"
+            android:gravity="top"
+            android:paddingTop="16dp"
+            android:paddingBottom="48dp"/>
+
+        <!-- The replay surface: when a drawing has stroke JSON, this view
+             animates the strokes back onto the page in their original order.
+             When there is no JSON, it stays empty and the static PNG is shown
+             via attachmentsContainer instead. Drawn under polaroids so the
+             pinned photos sit on top of the strokes (real notebook page). -->
+        <com.example.qualia.ui.DrawingView
+            android:id="@+id/replayView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!-- Polaroids and static drawing PNGs are added here as overlays.
+             attachmentsContainer is drawn last so polaroids appear on top of
+             the replayed strokes — pinned to the page above everything. -->
+        <FrameLayout
+            android:id="@+id/attachmentsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"/>
+
+    </FrameLayout>
+
+    <!--
+        "Let it go" caption. Press and hold to release the entry — the page
+        fades during the hold, the entry + its attachment files disappear at
+        the end. Releasing early reverses the fade. No dialog, no trash.
+        Hidden when the activity is opened without an entry id.
+    -->
+    <TextView
+        android:id="@+id/btnLetGo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#F5F0E8"
-        android:textSize="16sp"
+        android:text="let it go"
+        android:textColor="#9E938A"
+        android:textSize="12sp"
         android:fontFamily="@font/lora"
-        android:lineSpacingExtra="10dp"
-        android:paddingTop="32dp"
-        app:layout_constraintTop_toBottomOf="@id/txtDate"
+        android:letterSpacing="0.18"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

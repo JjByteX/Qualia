@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Required for the weather API call (Open-Meteo) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Used by SoundManager to fetch weather-matched ambient sound.
+         Both coarse and fine are declared; the app only requests coarse
+         at runtime (fine is offered as an upgrade by the OS on newer devices). -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Polaroid photos: declares the camera as an optional feature so devices
+         without one can still install. The runtime camera launch is via
+         ACTION_IMAGE_CAPTURE, which uses the system camera app — no direct
+         CAMERA permission required for our process. -->
+    <uses-feature android:name="android.hardware.camera"
+                  android:required="false" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/qualia"
@@ -26,6 +42,19 @@
         <activity android:name=".ui.PastEntriesActivity"/>
         <activity android:name=".ui.EntryDetailActivity"/>
         <activity android:name=".ui.GraduationActivity"/>
+
+        <!-- FileProvider for handing the system camera a writable URI when
+             we capture a polaroid. The authority is qualified with the
+             package name so it is unique across installed apps. -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
 
         <meta-data
             android:name="preloaded_fonts"

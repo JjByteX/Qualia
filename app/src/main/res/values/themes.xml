@@ -12,4 +12,26 @@
         <item name="android:textColor">#F5F0E8</item>
         <item name="android:lineSpacingExtra">8dp</item>
     </style>
+
+    <!--
+        Vertical palette swatch on the journal page. A small square pigment block
+        with consistent margins so the column reads as a tidy strip of crayons.
+        The selected swatch is scaled up at runtime; unselected swatches are
+        dimmed to 0.45 alpha.
+    -->
+    <style name="PaletteSwatch">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_marginVertical">3dp</item>
+    </style>
+
+    <!--
+        Three brush-size presets shown as graphite-coloured circles whose pixel
+        size hints at the actual stroke thickness. Common style; only the
+        layout_width / layout_height are set per-instance.
+    -->
+    <style name="BrushSizeDot">
+        <item name="android:layout_marginVertical">5dp</item>
+        <item name="android:background">@drawable/brush_dot</item>
+    </style>
 </resources>

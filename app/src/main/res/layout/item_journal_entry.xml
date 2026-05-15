@@ -6,14 +6,38 @@
     android:orientation="vertical"
     android:paddingVertical="20dp">
 
-    <TextView
-        android:id="@+id/txtDate"
-        android:layout_width="wrap_content"
+    <!-- Top row: date on the left, faint medium indicator on the right.
+         The indicator is empty (gone) for text-only entries; for entries with
+         a chalk drawing it shows a single small mark. We never use a number —
+         just presence. -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#6B6560"
-        android:textSize="11sp"
-        android:fontFamily="@font/lora"
-        android:letterSpacing="0.1"/>
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#6B6560"
+            android:textSize="11sp"
+            android:fontFamily="@font/lora"
+            android:letterSpacing="0.1"/>
+
+        <!-- Faint chalk indicator: a small underline-style glyph using the
+             palette's mid-grey so it whispers rather than shouts. -->
+        <TextView
+            android:id="@+id/txtMediumIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="—"
+            android:textColor="#3A4540"
+            android:textSize="11sp"
+            android:fontFamily="@font/lora"
+            android:visibility="gone"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/txtPreview"

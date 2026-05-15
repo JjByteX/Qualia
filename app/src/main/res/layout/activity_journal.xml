@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Journal page — single-paper model, gesture-routed.
+
+    The whole screen is one warm cream paper page. Text and drawings share the
+    surface: the EditText sits beneath the DrawingView in z-order, so strokes
+    always overlay any text the user has typed (the way pencil overlays writing
+    on a real notebook page).
+
+    There is no type/draw mode toggle. The DrawingView distinguishes tap from
+    drag at runtime — a tap is forwarded down to the EditText (raises keyboard,
+    places cursor); a drag becomes a stroke.
+
+    Right-edge palette (always visible): seven colour swatches + an eraser
+    swatch (paper-coloured, "back to the page"), three brush-size presets
+    (thin/medium/thick), and undo / clear / camera. The palette is the only
+    place the user goes for tools — the page itself is just the page.
+-->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D0D0D"
-    android:paddingHorizontal="40dp">
+    android:background="@drawable/paper_background">
+
+    <!-- ── Top toolbar ─────────────────────────────────────────────────── -->
 
     <TextView
         android:id="@+id/btnBack"
@@ -15,7 +33,9 @@
         android:textColor="#6B6560"
         android:textSize="20sp"
         android:fontFamily="@font/lora"
+        android:paddingHorizontal="20dp"
         android:paddingTop="24dp"
+        android:paddingBottom="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -27,7 +47,9 @@
         android:textColor="#6B6560"
         android:textSize="13sp"
         android:fontFamily="@font/lora"
+        android:paddingHorizontal="20dp"
         android:paddingTop="24dp"
+        android:paddingBottom="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -36,30 +58,228 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="save"
-        android:textColor="#A89880"
+        android:textColor="#5C7A4F"
         android:textSize="14sp"
         android:fontFamily="@font/lora"
+        android:paddingHorizontal="16dp"
         android:paddingTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:paddingBottom="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnPastEntries"/>
 
-    <EditText
-        android:id="@+id/editJournal"
+    <!-- ── Page area: time tint + text + strokes + polaroids ───────────────
+         Z-order from back to front:
+           1. timeTint            — colour wash for time of day
+           2. editJournal         — the typed text
+           3. drawingView         — strokes the user is drawing
+           4. polaroidContainer   — polaroids live on top, taped to the page
+         Polaroids are draggable; touches on empty space of the polaroid
+         container fall through to the DrawingView underneath.                 -->
+
+    <FrameLayout
+        android:id="@+id/pageFrame"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@null"
-        android:hint="You could start by saying, 'I...'"
-        android:textColor="#F5F0E8"
-        android:textSize="16sp"
-        android:fontFamily="@font/lora"
-        android:lineSpacingExtra="8dp"
-        android:gravity="top"
-        android:inputType="textMultiLine|textCapSentences"
-        android:paddingTop="16dp"
+        android:paddingHorizontal="32dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="48dp"
         app:layout_constraintTop_toBottomOf="@id/btnBack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toStartOf="@id/palette">
+
+        <View
+            android:id="@+id/timeTint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <EditText
+            android:id="@+id/editJournal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="You could start by saying, 'I...'"
+            android:textColor="#3D332B"
+            android:textColorHint="#A89880"
+            android:textSize="16sp"
+            android:fontFamily="@font/lora"
+            android:lineSpacingExtra="8dp"
+            android:gravity="top"
+            android:inputType="textMultiLine|textCapSentences"
+            android:paddingTop="16dp"
+            android:paddingBottom="48dp"/>
+
+        <com.example.qualia.ui.DrawingView
+            android:id="@+id/drawingView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <FrameLayout
+            android:id="@+id/polaroidContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"/>
+
+    </FrameLayout>
+
+    <!-- ── Right-edge vertical palette ──────────────────────────────────── -->
+
+    <LinearLayout
+        android:id="@+id/palette"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="top|center_horizontal"
+        android:paddingTop="12dp"
+        android:paddingBottom="32dp"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Camera (polaroid) -->
+        <TextView
+            android:id="@+id/btnCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="◐"
+            android:textColor="#6B6560"
+            android:textSize="20sp"
+            android:fontFamily="@font/lora"
+            android:paddingVertical="4dp"/>
+
+        <View android:layout_width="16dp" android:layout_height="1dp"
+              android:layout_marginVertical="8dp"
+              android:background="#33000000"/>
+
+        <!-- Colour swatches: warm white + saturated illustration primaries.
+             Selected swatch scales up; unselected sit at 0.45 alpha. -->
+        <View android:id="@+id/swatch0" style="@style/PaletteSwatch"
+              android:background="#FAF6EE"/>
+        <View android:id="@+id/swatch1" style="@style/PaletteSwatch"
+              android:background="#2E7D4A"/>
+        <View android:id="@+id/swatch2" style="@style/PaletteSwatch"
+              android:background="#6EA8D4"/>
+        <View android:id="@+id/swatch3" style="@style/PaletteSwatch"
+              android:background="#9A5B2E"/>
+        <View android:id="@+id/swatch4" style="@style/PaletteSwatch"
+              android:background="#F0C84C"/>
+        <View android:id="@+id/swatch5" style="@style/PaletteSwatch"
+              android:background="#E06E35"/>
+        <View android:id="@+id/swatch6" style="@style/PaletteSwatch"
+              android:background="#7B4E82"/>
+
+        <!-- Custom-colour swatch. Tap to open the picker dialog; the chosen
+             hue both becomes the active brush AND is remembered on this
+             swatch so re-picking is one tap. -->
+        <View android:id="@+id/swatchCustom" style="@style/PaletteSwatch"
+              android:background="@drawable/custom_swatch"/>
+
+        <!-- Eraser as a swatch — paper-coloured, reads as "back to page" -->
+        <View android:id="@+id/swatchEraser" style="@style/PaletteSwatch"
+              android:background="@drawable/eraser_swatch"/>
+
+        <View android:layout_width="16dp" android:layout_height="1dp"
+              android:layout_marginVertical="8dp"
+              android:background="#33000000"/>
+
+        <!-- Three brush-size presets. Each is a circle dot whose size hints at
+             the actual brush thickness. Tapping one selects it. -->
+        <View android:id="@+id/sizeSmall"  style="@style/BrushSizeDot"
+              android:layout_width="6dp"  android:layout_height="6dp"/>
+        <View android:id="@+id/sizeMedium" style="@style/BrushSizeDot"
+              android:layout_width="12dp" android:layout_height="12dp"/>
+        <View android:id="@+id/sizeLarge"  style="@style/BrushSizeDot"
+              android:layout_width="20dp" android:layout_height="20dp"/>
+
+        <View android:layout_width="16dp" android:layout_height="1dp"
+              android:layout_marginVertical="8dp"
+              android:background="#33000000"/>
+
+        <TextView
+            android:id="@+id/btnUndo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="undo"
+            android:textColor="#A89880"
+            android:textSize="11sp"
+            android:fontFamily="@font/lora"
+            android:letterSpacing="0.15"
+            android:paddingVertical="6dp"/>
+
+        <TextView
+            android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="clear"
+            android:textColor="#A89880"
+            android:textSize="11sp"
+            android:fontFamily="@font/lora"
+            android:letterSpacing="0.15"
+            android:paddingVertical="6dp"/>
+
+    </LinearLayout>
+
+    <!-- ── Fading toggle (bottom-left, very quiet) ───────────────────────
+         Now governs both text fading AND drawing fading on entry-detail
+         playback. Same toggle, broader meaning. -->
+
+    <TextView
+        android:id="@+id/btnFade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fading off"
+        android:textColor="#A89880"
+        android:textSize="11sp"
+        android:fontFamily="@font/lora"
+        android:letterSpacing="0.15"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- ── Three doors out of the journal (bottom-centre, very quiet) ──────
+         These three captions appear when the page has anything on it:
+         a written line, a stroke, or a polaroid. They give the user three
+         intentional ways to leave:
+            • let go  — discard this page; new-this-session polaroid files
+                        are deleted from disk too. Hold-to-release: same
+                        ~2.5s fade as entry deletion.
+            • let be  — keep the page in scratch space. Returning to journal
+                        restores text, strokes, and polaroid positions.
+            • save    — commit as a real entry (mirrors btnSave at the top).
+         Hidden when the page is empty: the fading toggle gets the corner
+         to itself. -->
+
+    <TextView
+        android:id="@+id/btnLetGo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="let go"
+        android:textColor="#A89880"
+        android:textSize="11sp"
+        android:fontFamily="@font/lora"
+        android:letterSpacing="0.18"
+        android:paddingHorizontal="14dp"
+        android:paddingBottom="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnLetBe"/>
+
+    <TextView
+        android:id="@+id/btnLetBe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="let it be"
+        android:textColor="#A89880"
+        android:textSize="11sp"
+        android:fontFamily="@font/lora"
+        android:letterSpacing="0.18"
+        android:paddingHorizontal="14dp"
+        android:paddingBottom="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingEnd="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
