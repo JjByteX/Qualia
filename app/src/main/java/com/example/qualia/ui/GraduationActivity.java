@@ -3,6 +3,9 @@ package com.example.qualia.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.view.View;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.qualia.R;
@@ -42,18 +45,63 @@ public class GraduationActivity extends BaseActivity {
                     "Take that quiet with you.\n\n" +
                     "It was always yours.";
 
+    private WeatherFlowView weatherFlow;
+    private ScrollView scrollView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graduation);
 
         TextView txtGraduation = findViewById(R.id.txtGraduation);
-        TextView btnClose = findViewById(R.id.btnClose);
+        TextView btnClose      = findViewById(R.id.btnClose);
+        weatherFlow            = findViewById(R.id.weatherFlow);
+        scrollView             = findViewById(R.id.scrollView);
 
         // Load journal entries and weave them in
         new JournalRepository(this).getAllEntries(entries ->
                 runOnUiThread(() -> buildGraduationText(txtGraduation, btnClose, entries))
         );
+
+        // ── Scroll-driven climax ──────────────────────────────────────────────
+        // As the user scrolls through the letter, the accumulated 70 sessions
+        // of dust drain away, and an aurora rises across the upper third near
+        // the end. This is the one place in the app where the visual is
+        // allowed to carry the meaning — it is the literal moment the proposal
+        // calls "the feeling worth returning to". The text is doing the work;
+        // the visual is just the shape of the room.
+        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int sx, int sy, int oldSx, int oldSy) {
+                updateClimax();
+            }
+        });
+        // Initial state — full density, no aurora.
+        if (weatherFlow != null) {
+            weatherFlow.setDrain(0f);
+            weatherFlow.setAuroraIntensity(0f);
+        }
+    }
+
+    private void updateClimax() {
+        if (weatherFlow == null || scrollView == null) return;
+        View child = scrollView.getChildAt(0);
+        if (child == null) return;
+        int contentHeight = child.getHeight();
+        int viewHeight    = scrollView.getHeight();
+        int max = Math.max(1, contentHeight - viewHeight);
+        float progress = Math.max(0f, Math.min(1f, scrollView.getScrollY() / (float) max));
+
+        // Drain: starts at 0, reaches 0.75 by the end. Never fully empty —
+        // leaving a few motes ensures the button is read against a calm field,
+        // not a void.
+        float drain = progress * 0.75f;
+        weatherFlow.setDrain(drain);
+
+        // Aurora: kicks in past 0.55 and peaks at the very bottom.
+        float auroraT = Math.max(0f, (progress - 0.55f) / 0.45f);
+        float aurora  = Math.min(1f, auroraT) * 0.85f;
+        weatherFlow.setAuroraIntensity(aurora);
     }
 
     private void buildGraduationText(TextView txtGraduation, TextView btnClose,
@@ -81,12 +129,17 @@ public class GraduationActivity extends BaseActivity {
         full.append(GRADUATION_TEXT);
         txtGraduation.setText(full.toString());
 
-        // Fade in text slowly
-        txtGraduation.animate().alpha(1f).setStartDelay(600).setDuration(1200).start();
+        // Field-only pause before the letter arrives. For ~2.5 seconds the
+        // user sees only the full-density dust — 70 sessions of accumulated
+        // presence rendered as a visible weight. They feel it before they
+        // read about it.
+        txtGraduation.animate().alpha(1f).setStartDelay(2500).setDuration(1800).start();
 
-        // Button appears after a long delay — let them read first
-        new Handler().postDelayed(() ->
-                btnClose.animate().alpha(1f).setDuration(800).start(), 8000);
+        // Button appears after a long delay — let them read first. Use the
+        // main-thread Handler explicitly so we don't rely on the deprecated
+        // no-arg constructor.
+        new Handler(Looper.getMainLooper()).postDelayed(() ->
+                btnClose.animate().alpha(1f).setDuration(800).start(), 10000);
 
         btnClose.setOnClickListener(v -> {
             startActivity(new Intent(this, HomeActivity.class));

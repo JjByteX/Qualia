@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Paths exposed via FileProvider so the system camera intent can write
+    captured photos into our app's private files directory.
+-->
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <files-path name="polaroids" path="polaroids/"/>
+</paths>

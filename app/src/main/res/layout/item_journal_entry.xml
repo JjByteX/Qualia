@@ -51,10 +51,13 @@
         android:ellipsize="end"
         android:layout_marginTop="6dp"/>
 
+    <!-- Divider on the paper surface. Semi-transparent black so it reads
+         as a faint pencil line on cream, matching the divider style used
+         on the journal palette. -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#1A1A1A"
+        android:background="#33000000"
         android:layout_marginTop="20dp"/>
 
 </LinearLayout>

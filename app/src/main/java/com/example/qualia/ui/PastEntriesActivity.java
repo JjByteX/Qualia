@@ -65,7 +65,10 @@ public class PastEntriesActivity extends BaseActivity {
 
         boolean fadingEnabled = new PrefsManager(this).isFadingJournal();
 
-        btnBack.setOnClickListener(v -> finish());
+        btnBack.setOnClickListener(v -> {
+            finish();
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        });
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
         btnViewToggle.setOnClickListener(v -> toggleMode());

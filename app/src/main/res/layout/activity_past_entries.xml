@@ -2,6 +2,14 @@
 <!--
     Past entries screen.
 
+    Sits on the same paper page as Journal and EntryDetail so the
+    journal-family is visually contiguous: paper → paper → paper. The
+    previous dark background broke the metaphor in the middle of the
+    journaling flow (the user wrote on paper, opened a list against
+    blackness, then re-entered paper). All text colours below are picked
+    for contrast on cream, matching the rest of the journal-family
+    typography.
+
     Two views of the same data, swapped via the top-right toggle:
       • List   — chronological entries with previews and the faint medium
                  indicator (existing behaviour).
@@ -15,7 +23,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D0D0D"
+    android:background="@drawable/paper_background"
     android:paddingHorizontal="40dp">
 
     <TextView
@@ -27,15 +35,21 @@
         android:textSize="20sp"
         android:fontFamily="@font/lora"
         android:paddingTop="24dp"
+        android:paddingHorizontal="8dp"
+        android:paddingBottom="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <!-- Title in the journal-family body brown (#3D332B), matching the
+         entry body text and the journal write screen. Previously #F5F0E8
+         (warm white) which only made sense on the dark background. -->
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="what you wrote"
-        android:textColor="#F5F0E8"
+        android:textColor="#3D332B"
         android:textSize="16sp"
         android:fontFamily="@font/lora"
         android:paddingTop="24dp"
@@ -44,28 +58,33 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- View toggle. Tapping swaps between the chronological list and the
-         month-grid calendar. Quiet text-only design — matches the rest of
-         the screen's restrained palette. -->
+         month-grid calendar. The dim warm grey (#8A7E70) reads on cream
+         the way the previous #9E938A read on near-black — same role,
+         contrast-matched for the new surface. -->
     <TextView
         android:id="@+id/btnViewToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="calendar"
-        android:textColor="#9E938A"
+        android:textColor="#8A7E70"
         android:textSize="12sp"
         android:fontFamily="@font/lora"
         android:letterSpacing="0.08"
         android:paddingTop="28dp"
         android:paddingBottom="8dp"
+        android:paddingHorizontal="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Empty-state copy. Same warm dim used for journal hint text so it
+         reads as a quiet placeholder rather than a missing entry. -->
     <TextView
         android:id="@+id/txtEmpty"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Nothing written yet."
-        android:textColor="#3A3A3A"
+        android:textColor="#A89880"
         android:textSize="15sp"
         android:fontFamily="@font/lora"
         android:visibility="gone"

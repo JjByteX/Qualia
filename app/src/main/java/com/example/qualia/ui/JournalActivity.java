@@ -7,11 +7,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -36,10 +34,10 @@ import com.example.qualia.R;
 import com.example.qualia.data.model.Attachment;
 import com.example.qualia.data.model.JournalEntry;
 import com.example.qualia.data.repository.JournalRepository;
+import com.example.qualia.ui.journal.DraftStore;
+import com.example.qualia.ui.journal.PageReleaseGesture;
+import com.example.qualia.ui.journal.PolaroidImage;
 import com.example.qualia.util.PrefsManager;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -154,9 +152,10 @@ public class JournalActivity extends BaseActivity {
     /** Top-right save button (cached so we can re-style it on draft restore). */
     private TextView      btnSaveRef;
 
-    /** True while a "let go" hold is in flight on the whole page. */
-    private boolean       pageReleasing;
-    private ValueAnimator pageReleaseAnim;
+    /** Hold-to-fade gesture on the "let go" button. The flag, the animator,
+     *  and the touch listener live inside this object now — the activity just
+     *  supplies the commit callback. */
+    private PageReleaseGesture pageReleaseGesture;
 
     /** How long the user must hold "let go" for the page (or a polaroid) to
      *  actually be released. Same constant for both flows so the gesture
@@ -326,7 +325,11 @@ public class JournalActivity extends BaseActivity {
 
         // ── Three doors out (visible when there's anything on the page) ───────
         btnLetBe.setOnClickListener(v -> exitWithLetItBe());
-        btnLetGo.setOnTouchListener(this::onPageLetGoTouch);
+        // Hold-to-fade. Gesture owns its own state — we just describe what
+        // "committed" means (clean up scratch files and finish).
+        pageReleaseGesture = new PageReleaseGesture(
+                btnLetGo, pageFrame, LET_GO_HOLD_MS, this::onPageReleaseCommitted);
+        pageReleaseGesture.attach();
 
         // Watch text changes so the doors appear once anything's on the page.
         editJournal.addTextChangedListener(new android.text.TextWatcher() {
@@ -358,7 +361,7 @@ public class JournalActivity extends BaseActivity {
         } else {
             // Fresh-create mode: if the user tapped "let it be" last time,
             // restore that draft so the page picks up where they left off.
-            String draft = prefs.getDraft();
+            DraftStore.Draft draft = new DraftStore(this).load();
             if (draft != null) {
                 restoreDraft(draft);
             }
@@ -366,6 +369,81 @@ public class JournalActivity extends BaseActivity {
 
         // Initial pass — drives door visibility based on current page state.
         applyDoorVisibility();
+
+        // ── First-visit ghost-stroke demo ─────────────────────────────────
+        // The drawing affordance on this page is invisible — there's no
+        // "draw" button, no tooltip, no toggle. A new user has no way to
+        // know they can drag to draw. We teach it diegetically: after a
+        // few seconds of inactivity, a faint stroke appears on the page,
+        // is "drawn" by an unseen hand, then dissolves. Shown once, ever,
+        // and only on a fresh page (no existing strokes or draft). The
+        // moment the user touches the page, the demo is cancelled.
+        if (editId == 0 && !prefs.hasShownJournalDemo()) {
+            drawingView.postDelayed(() -> {
+                if (drawingView.hasStrokes()) {
+                    // User already drew while we were waiting — they
+                    // figured it out on their own. Skip the demo.
+                    prefs.setJournalDemoShown();
+                    return;
+                }
+                drawingView.playGhostStrokeDemo(null);
+                prefs.setJournalDemoShown();
+            }, 3500L);
+        }
+
+        // ── First-visit text-and-draw hint (v5) ───────────────────────
+        // The page hides two behaviours behind the same surface: tap
+        // raises the keyboard, drag becomes a stroke. The ghost-stroke
+        // demo above teaches the drawing half. This line names both
+        // halves at once so the user knows what they're looking at
+        // before they touch it. Shown once, ever, and only on a fresh
+        // page; the moment the user types or draws, we mark it shown
+        // and let it fade out so nothing lingers next to the cursor.
+        TextView txtJournalHint = findViewById(R.id.txtJournalHint);
+        if (txtJournalHint != null
+                && editId == 0
+                && !prefs.hasShownJournalHint()) {
+            // Mark immediately so a fast app-restart doesn't show it twice.
+            prefs.setJournalHintShown();
+
+            txtJournalHint.setVisibility(View.VISIBLE);
+            txtJournalHint.setAlpha(0f);
+
+            // Cancel-on-interaction: if the user starts writing or drawing
+            // before the hint has finished fading in, dismiss it so we
+            // never compete with the work they just started.
+            Runnable fadeOutNow = () -> txtJournalHint.animate()
+                    .alpha(0f)
+                    .setDuration(500)
+                    .withEndAction(() -> txtJournalHint.setVisibility(View.GONE))
+                    .start();
+
+            // Dismiss the hint the moment the user actually engages —
+            // either by typing or by finishing a stroke. The page is
+            // already doing what the hint described; the hint has no
+            // further job. We deliberately don't install a raw touch
+            // listener on the DrawingView (which would interfere with
+            // its own gesture routing); the stroke-finished callback is
+            // a clean shoulder-tap.
+            editJournal.addTextChangedListener(new android.text.TextWatcher() {
+                @Override public void beforeTextChanged(CharSequence s, int a, int b, int c) {}
+                @Override public void onTextChanged(CharSequence s, int a, int b, int c) {
+                    if (txtJournalHint.getVisibility() == View.VISIBLE) fadeOutNow.run();
+                }
+                @Override public void afterTextChanged(android.text.Editable e) {}
+            });
+            Runnable existingStrokeCallback = this::applyDoorVisibility;
+            drawingView.setOnStrokeFinished(() -> {
+                existingStrokeCallback.run();
+                if (txtJournalHint.getVisibility() == View.VISIBLE) fadeOutNow.run();
+            });
+
+            txtJournalHint.postDelayed(() -> txtJournalHint.animate()
+                    .alpha(0.65f)
+                    .setDuration(900)
+                    .start(), 1200L);
+            txtJournalHint.postDelayed(fadeOutNow, 7600L);
+        }
     }
 
     // ── Save flow ──────────────────────────────────────────────────────────────
@@ -429,7 +507,7 @@ public class JournalActivity extends BaseActivity {
                     newId -> runOnUiThread(() -> {
                         // Page is committed — the draft (if any) is no longer
                         // needed; clear it so the next blank page is blank.
-                        new PrefsManager(this).clearDraft();
+                        new DraftStore(this).clear();
                         Toast.makeText(this, "Saved.", Toast.LENGTH_SHORT).show();
                         finish();
                     }));
@@ -467,140 +545,71 @@ public class JournalActivity extends BaseActivity {
         // is no draft semantics. Just close.
         if (editingEntry != null) { finish(); return; }
 
+        DraftStore store = new DraftStore(this);
         if (!hasPageContent()) {
             // Nothing to keep. Make sure no stale draft lingers either.
-            new PrefsManager(this).clearDraft();
+            store.clear();
             finish();
             return;
         }
-        try {
-            JSONObject doc = serializeDraft();
-            new PrefsManager(this).setDraft(doc.toString());
-        } catch (Exception ignored) {
-            // If serialization fails, prefer losing the draft to crashing.
-            new PrefsManager(this).clearDraft();
-        }
+        store.save(buildDraftSnapshot());
         finish();
     }
 
-    /** Builds the JSON document for the current page that
-     *  {@link #restoreDraft(String)} can read back. Captures text, strokes,
-     *  and any polaroids' on-page positions + tilts. */
-    private JSONObject serializeDraft() throws Exception {
-        JSONObject doc = new JSONObject();
-        doc.put("text", editJournal.getText().toString());
-
+    /** Builds a {@link DraftStore.Draft} from the current page state — text,
+     *  drawing strokes, and any polaroids with their fractional positions
+     *  and tilts. */
+    private DraftStore.Draft buildDraftSnapshot() {
+        DraftStore.Draft d = new DraftStore.Draft();
+        d.text = editJournal.getText().toString();
         if (drawingView.hasStrokes()) {
-            String json = drawingView.strokesToJson();
-            if (json != null) doc.put("strokes", json);
+            d.strokesJson = drawingView.strokesToJson();
         }
-
-        JSONArray polys = new JSONArray();
         int containerW = polaroidContainer.getWidth();
         int containerH = polaroidContainer.getHeight();
         for (PendingPolaroid pp : pendingPolaroids) {
-            JSONObject p = new JSONObject();
-            p.put("path", POLAROIDS_DIR + "/" + pp.file.getName());
+            DraftStore.Polaroid p = new DraftStore.Polaroid();
+            p.relPath = POLAROIDS_DIR + "/" + pp.file.getName();
             FrameLayout.LayoutParams lp =
                     (FrameLayout.LayoutParams) pp.view.getLayoutParams();
             if (containerW > 0 && containerH > 0) {
-                p.put("fx",   lp.leftMargin / (float) containerW);
-                p.put("fy",   lp.topMargin  / (float) containerH);
-                p.put("fw",   pp.view.getWidth() / (float) containerW);
+                p.fx = lp.leftMargin / (float) containerW;
+                p.fy = lp.topMargin  / (float) containerH;
+                p.fw = pp.view.getWidth() / (float) containerW;
             }
-            p.put("tilt", pp.view.getRotation());
-            polys.put(p);
+            p.tilt = pp.view.getRotation();
+            d.polaroids.add(p);
         }
-        doc.put("polaroids", polys);
-        return doc;
+        return d;
     }
 
-    /** Inverse of {@link #serializeDraft()}: text into the EditText, strokes
-     *  into the DrawingView, polaroids back onto the page in their saved
-     *  positions. Polaroid files restored here become part of
-     *  {@link #sessionPolaroids} so a subsequent "let it go" cleans them up. */
-    private void restoreDraft(String json) {
-        try {
-            JSONObject doc = new JSONObject(json);
-            String text = doc.optString("text", "");
-            if (!text.isEmpty()) {
-                editJournal.setText(text);
-                editJournal.setSelection(editJournal.getText().length());
-            }
-            String strokes = doc.optString("strokes", "");
-            if (!strokes.isEmpty()) {
-                drawingView.setStrokesFromJson(strokes);
-            }
-            JSONArray polys = doc.optJSONArray("polaroids");
-            if (polys != null) {
-                for (int i = 0; i < polys.length(); i++) {
-                    JSONObject p = polys.optJSONObject(i);
-                    if (p == null) continue;
-                    String rel = p.optString("path", "");
-                    if (rel.isEmpty()) continue;
-                    File pngFile = new File(getFilesDir(), rel);
-                    if (!pngFile.exists()) continue;
-                    sessionPolaroids.add(pngFile);
-                    displayPolaroidExisting(pngFile);
-                }
-            }
-        } catch (Exception ignored) {
-            // Bad draft? Drop it silently — the page just stays blank.
-            new PrefsManager(this).clearDraft();
+    /** Inverse of {@link #buildDraftSnapshot()}: text into the EditText, strokes
+     *  into the DrawingView, polaroids back onto the page. Polaroid files
+     *  restored here become part of {@link #sessionPolaroids} so a subsequent
+     *  "let it go" cleans them up. */
+    private void restoreDraft(DraftStore.Draft draft) {
+        if (draft.text != null && !draft.text.isEmpty()) {
+            editJournal.setText(draft.text);
+            editJournal.setSelection(editJournal.getText().length());
+        }
+        if (draft.strokesJson != null && !draft.strokesJson.isEmpty()) {
+            drawingView.setStrokesFromJson(draft.strokesJson);
+        }
+        for (DraftStore.Polaroid p : draft.polaroids) {
+            File pngFile = new File(getFilesDir(), p.relPath);
+            if (!pngFile.exists()) continue;
+            sessionPolaroids.add(pngFile);
+            displayPolaroidExisting(pngFile);
         }
     }
 
-    // ── Page "let go": hold-to-fade gesture for the whole page ────────────────
+    // ── Page "let go" commit ──────────────────────────────────────────────────────────
 
-    private boolean onPageLetGoTouch(View v, MotionEvent event) {
-        switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
-                beginPageRelease();
-                return true;
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_CANCEL:
-                if (!pageReleasing) return false;
-                cancelPageRelease();
-                return true;
-        }
-        return false;
-    }
-
-    private void beginPageRelease() {
-        if (pageReleasing) return;
-        pageReleasing = true;
-        btnLetGo.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-
-        if (pageReleaseAnim != null) pageReleaseAnim.cancel();
-        float startAlpha = pageFrame.getAlpha();
-        pageReleaseAnim = ValueAnimator.ofFloat(startAlpha, 0f);
-        pageReleaseAnim.setDuration((long) (LET_GO_HOLD_MS * startAlpha));
-        pageReleaseAnim.addUpdateListener(va ->
-                pageFrame.setAlpha((float) va.getAnimatedValue()));
-        pageReleaseAnim.addListener(new AnimatorListenerAdapter() {
-            private boolean cancelled;
-            @Override public void onAnimationCancel(Animator a) { cancelled = true; }
-            @Override public void onAnimationEnd(Animator a) {
-                if (!cancelled) commitPageRelease();
-            }
-        });
-        pageReleaseAnim.start();
-    }
-
-    private void cancelPageRelease() {
-        pageReleasing = false;
-        if (pageReleaseAnim != null) {
-            pageReleaseAnim.cancel();
-            pageReleaseAnim = null;
-        }
-        pageFrame.animate().alpha(1f).setDuration(220).start();
-    }
-
-    private void commitPageRelease() {
-        // Disable further input on the let-go button so we don't double-fire.
-        btnLetGo.setOnTouchListener(null);
-        btnLetGo.setEnabled(false);
-
+    /** Called by {@link PageReleaseGesture} when the user has held "let go"
+     *  long enough that the page has faded to fully transparent. Cleans up
+     *  scratch files (polaroids captured this session that don't belong to
+     *  a saved entry) and finishes the activity. */
+    private void onPageReleaseCommitted() {
         // Delete files captured this session that are NOT bound to a saved
         // entry. Edit-mode polaroid files are owned by the entry — never
         // touched here; the user already had a chance to "let go" the entry
@@ -610,9 +619,8 @@ public class JournalActivity extends BaseActivity {
                 deletePolaroidWithSidecars(f);
             }
             sessionPolaroids.clear();
-            new PrefsManager(this).clearDraft();
+            new DraftStore(this).clear();
         }
-
         btnLetGo.postDelayed(this::finish, 200);
     }
 
@@ -717,7 +725,7 @@ public class JournalActivity extends BaseActivity {
 
     private void onPolaroidCaptured(File staged) {
         try {
-            Bitmap raw = decodeAndOrient(staged.getAbsolutePath());
+            Bitmap raw = PolaroidImage.decodeAndOrient(staged.getAbsolutePath());
             if (raw == null) {
                 Toast.makeText(this, "Couldn't read photo.", Toast.LENGTH_SHORT).show();
                 //noinspection ResultOfMethodCallIgnored
@@ -726,7 +734,7 @@ public class JournalActivity extends BaseActivity {
                 return;
             }
 
-            Bitmap polaroid = composePolaroid(raw);
+            Bitmap polaroid = PolaroidImage.composePolaroid(raw);
             File dir = new File(getFilesDir(), POLAROIDS_DIR);
             //noinspection ResultOfMethodCallIgnored
             dir.mkdirs();
@@ -791,140 +799,10 @@ public class JournalActivity extends BaseActivity {
         applyDoorVisibility();
     }
 
-    /** Decodes a JPEG file at a sane size and applies EXIF rotation so portrait
-     *  photos read upright. Caps the long edge at 1280px to keep memory sane. */
-    private Bitmap decodeAndOrient(String path) {
-        BitmapFactory.Options bounds = new BitmapFactory.Options();
-        bounds.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(path, bounds);
-
-        final int targetMax = 1280;
-        int sample = 1;
-        while ((bounds.outWidth / sample) > targetMax
-                || (bounds.outHeight / sample) > targetMax) {
-            sample *= 2;
-        }
-        BitmapFactory.Options opts = new BitmapFactory.Options();
-        opts.inSampleSize = sample;
-        Bitmap raw = BitmapFactory.decodeFile(path, opts);
-        if (raw == null) return null;
-
-        try {
-            android.media.ExifInterface exif = new android.media.ExifInterface(path);
-            int orientation = exif.getAttributeInt(
-                    android.media.ExifInterface.TAG_ORIENTATION,
-                    android.media.ExifInterface.ORIENTATION_NORMAL);
-            float rotate = 0;
-            switch (orientation) {
-                case android.media.ExifInterface.ORIENTATION_ROTATE_90:  rotate = 90;  break;
-                case android.media.ExifInterface.ORIENTATION_ROTATE_180: rotate = 180; break;
-                case android.media.ExifInterface.ORIENTATION_ROTATE_270: rotate = 270; break;
-                default: /* nothing */
-            }
-            if (rotate != 0) {
-                android.graphics.Matrix m = new android.graphics.Matrix();
-                m.postRotate(rotate);
-                Bitmap rotated = Bitmap.createBitmap(raw, 0, 0,
-                        raw.getWidth(), raw.getHeight(), m, true);
-                if (rotated != raw) raw.recycle();
-                return rotated;
-            }
-        } catch (IOException ignored) {
-            // No EXIF or unreadable — fall through with the un-rotated bitmap.
-        }
-        return raw;
-    }
-
-    // Polaroid composition constants. Kept here so the activity-level pivot
-    // calculation (for tilt + drag rotation) lines up with the baked pin.
-    private static final int POLAROID_FRAME_TOP    = 24;
-    private static final int POLAROID_FRAME_SIDES  = 24;
-    private static final int POLAROID_FRAME_BOTTOM = 88;
-    private static final int POLAROID_SHADOW       = 18;
-    private static final int POLAROID_PIN_RADIUS   = 14;
-    /** Y-offset of the pin centre in the composed bitmap, in pixels. */
-    private static final int POLAROID_PIN_Y_PX     =
-            POLAROID_SHADOW + POLAROID_FRAME_TOP / 2;
-
-    /** Square-crops, frames in white (taller bottom strip), bakes a small red
-     *  pushpin at the top-centre, and adds a soft drop shadow. Returns an
-     *  opaque ARGB bitmap ready to overlay on the page. */
-    private Bitmap composePolaroid(Bitmap raw) {
-        // Square crop from the centre.
-        int side = Math.min(raw.getWidth(), raw.getHeight());
-        int x = (raw.getWidth()  - side) / 2;
-        int y = (raw.getHeight() - side) / 2;
-        Bitmap square = Bitmap.createBitmap(raw, x, y, side, side);
-
-        int top = POLAROID_FRAME_TOP, sides = POLAROID_FRAME_SIDES,
-            bottom = POLAROID_FRAME_BOTTOM, shadow = POLAROID_SHADOW;
-        int W = square.getWidth() + sides * 2;
-        int H = square.getHeight() + top + bottom;
-
-        Bitmap out = Bitmap.createBitmap(W + shadow * 2, H + shadow * 2,
-                                         Bitmap.Config.ARGB_8888);
-        Canvas c = new Canvas(out);
-
-        // Soft shadow under the polaroid.
-        Paint shadowPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        shadowPaint.setColor(0x66000000);
-        shadowPaint.setMaskFilter(new android.graphics.BlurMaskFilter(
-                shadow, android.graphics.BlurMaskFilter.Blur.NORMAL));
-        RectF shadowRect = new RectF(shadow + 4, shadow + 6,
-                                     shadow + W + 4, shadow + H + 6);
-        c.drawRect(shadowRect, shadowPaint);
-
-        // White frame.
-        Paint frame = new Paint();
-        frame.setColor(0xFFFAF6EE);
-        c.drawRect(shadow, shadow, shadow + W, shadow + H, frame);
-
-        // The photo.
-        c.drawBitmap(square, shadow + sides, shadow + top, null);
-
-        // Barely-there inner shadow on the photo edges (printing artifact).
-        Paint inner = new Paint();
-        inner.setColor(0x10000000);
-        inner.setStyle(Paint.Style.STROKE);
-        inner.setStrokeWidth(1.5f);
-        c.drawRect(shadow + sides, shadow + top,
-                   shadow + sides + square.getWidth(),
-                   shadow + top  + square.getHeight(), inner);
-
-        // Pushpin at top-centre. Three layers: a soft cast shadow, a domed
-        // red head with a radial gradient, and a small highlight dot to sell
-        // the dome's curvature.
-        int pinCx = shadow + W / 2;
-        int pinCy = POLAROID_PIN_Y_PX;
-        int pinR  = POLAROID_PIN_RADIUS;
-
-        Paint pinShadow = new Paint(Paint.ANTI_ALIAS_FLAG);
-        pinShadow.setColor(0x55000000);
-        pinShadow.setMaskFilter(new android.graphics.BlurMaskFilter(
-                4, android.graphics.BlurMaskFilter.Blur.NORMAL));
-        c.drawCircle(pinCx + 1.5f, pinCy + 2.5f, pinR, pinShadow);
-
-        Paint pinHead = new Paint(Paint.ANTI_ALIAS_FLAG);
-        pinHead.setShader(new android.graphics.RadialGradient(
-                pinCx - pinR * 0.35f, pinCy - pinR * 0.45f, pinR * 1.6f,
-                0xFFFF8866, 0xFF8C1818,
-                android.graphics.Shader.TileMode.CLAMP));
-        c.drawCircle(pinCx, pinCy, pinR, pinHead);
-
-        Paint pinHighlight = new Paint(Paint.ANTI_ALIAS_FLAG);
-        pinHighlight.setColor(0xCCFFFFFF);
-        c.drawCircle(pinCx - pinR * 0.4f, pinCy - pinR * 0.45f,
-                     pinR * 0.32f, pinHighlight);
-
-        // A whisper of an outline so the head reads even on a busy photo.
-        Paint pinRim = new Paint(Paint.ANTI_ALIAS_FLAG);
-        pinRim.setColor(0x33000000);
-        pinRim.setStyle(Paint.Style.STROKE);
-        pinRim.setStrokeWidth(1f);
-        c.drawCircle(pinCx, pinCy, pinR, pinRim);
-
-        return out;
-    }
+    // Image processing (decode + EXIF rotation, square-crop + frame + pin)
+    // moved to com.example.qualia.ui.journal.PolaroidImage so this activity
+    // doesn't have to carry several hundred lines of paint code that nothing
+    // else in here touches.
 
     /** Adds the polaroid to the page with a develop animation (gray → faded
      *  colour → full colour, ~2.5s) plus a slight tilt. The polaroid pivots
@@ -1197,7 +1075,7 @@ public class JournalActivity extends BaseActivity {
             float bmpH = polaroid.getHeight();
             if (viewW <= 0 || viewH <= 0 || bmpW <= 0 || bmpH <= 0) return;
             iv.setPivotX(viewW / 2f);
-            iv.setPivotY(viewH * (POLAROID_PIN_Y_PX / bmpH));
+            iv.setPivotY(viewH * (PolaroidImage.PIN_Y_PX / bmpH));
         });
     }
 

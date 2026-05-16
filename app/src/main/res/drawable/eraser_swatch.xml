@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Eraser swatch — paper-coloured square with a faint outline.
+
+    The visual reads as "a piece of the paper itself" — i.e. erasing returns
+    you to the bare page. Sits in the same swatch column as the colour
+    swatches so the palette has a single consistent visual rhythm.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle">
+    <solid android:color="#F4ECDB"/>
+    <stroke android:width="1.5dp" android:color="#A89880"/>
+</shape>

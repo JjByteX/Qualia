@@ -3,8 +3,14 @@ package com.example.qualia.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class PrefsManager {
@@ -16,8 +22,12 @@ public class PrefsManager {
     private static final String KEY_LAST_SESSION_DATE = "last_session_date";
     private static final String KEY_SOUND_MUTED          = "sound_muted";
     private static final String KEY_FADING_JOURNAL       = "fading_journal";
-    private static final String KEY_VOICE_ENABLED        = "voice_enabled";
+    // KEY_VOICE_ENABLED removed — voice is mandatory now (every shipped session
+    // has bundled audio; there's no longer a meaningful 'off' state to store).
     private static final String KEY_PRELOADED_SESSION    = "preloaded_session_key";
+    private static final String KEY_JOURNAL_DEMO_SHOWN    = "journal_demo_shown";
+    private static final String KEY_JOURNAL_HINT_SHOWN    = "journal_hint_shown";
+    private static final String KEY_SESSION_HISTORY      = "session_history";
     private static final int    GRADUATION_THRESHOLD  = 70;
 
     private final SharedPreferences prefs;
@@ -36,7 +46,7 @@ public class PrefsManager {
         prefs.edit().putBoolean(KEY_FIRST_LAUNCH, false).apply();
     }
 
-    // ── Session history ───────────────────────────────────────────────────────
+    // ── Session history (recent, for the picker exclusion) ────────────────────
 
     public void saveLastSession(String key) {
         String existing = prefs.getString(KEY_LAST_SESSIONS, "");
@@ -52,6 +62,68 @@ public class PrefsManager {
         String raw = prefs.getString(KEY_LAST_SESSIONS, "");
         if (raw.isEmpty()) return new String[0];
         return raw.split(",");
+    }
+
+    // ── Full session history (for the post-graduation archive) ────────────────
+    //
+    // We store every session the user has sat with, keyed by start-time. This
+    // is the data behind the "what was said" archive — the writing they came
+    // back to seventy times, returned to them in chronological order, faded
+    // with age the way the journal does for their own words.
+    //
+    // Format: JSON array of objects { "k": "<sessionKey>", "t": <epochMs> }.
+    // Append-only. We never trim — the archive is the record.
+
+    public void recordSessionPlayed(String key, long timestampMs) {
+        if (key == null || key.isEmpty()) return;
+        JSONArray arr = readHistoryArray();
+        try {
+            JSONObject entry = new JSONObject();
+            entry.put("k", key);
+            entry.put("t", timestampMs);
+            arr.put(entry);
+            prefs.edit().putString(KEY_SESSION_HISTORY, arr.toString()).apply();
+        } catch (JSONException ignored) {
+            // Worst case: the archive is missing this one entry. The session
+            // itself still plays; we don't want a bad write to crash the
+            // session flow.
+        }
+    }
+
+    /** Returns the user's full history of sat-with sessions, oldest first.
+     *  Each entry is a (sessionKey, epochMs) pair. Returns an empty list if
+     *  the user has never started a session or the prefs are corrupt. */
+    public List<SessionHistoryEntry> getSessionHistory() {
+        List<SessionHistoryEntry> out = new ArrayList<>();
+        JSONArray arr = readHistoryArray();
+        for (int i = 0; i < arr.length(); i++) {
+            JSONObject o = arr.optJSONObject(i);
+            if (o == null) continue;
+            String k = o.optString("k", null);
+            long   t = o.optLong("t", 0L);
+            if (k != null && !k.isEmpty()) out.add(new SessionHistoryEntry(k, t));
+        }
+        return out;
+    }
+
+    private JSONArray readHistoryArray() {
+        String raw = prefs.getString(KEY_SESSION_HISTORY, "");
+        if (raw.isEmpty()) return new JSONArray();
+        try {
+            return new JSONArray(raw);
+        } catch (JSONException ignored) {
+            return new JSONArray();
+        }
+    }
+
+    /** A single (sessionKey, timestamp) pair from the user's history. */
+    public static final class SessionHistoryEntry {
+        public final String key;
+        public final long timestampMs;
+        public SessionHistoryEntry(String key, long timestampMs) {
+            this.key = key;
+            this.timestampMs = timestampMs;
+        }
     }
 
     // ── Session count & graduation ─────────────────────────────────────────────
@@ -70,6 +142,10 @@ public class PrefsManager {
 
     public int getSessionsRemaining() {
         return Math.max(0, GRADUATION_THRESHOLD - getSessionCount());
+    }
+
+    public int getGraduationThreshold() {
+        return GRADUATION_THRESHOLD;
     }
 
     // ── Daily gate ────────────────────────────────────────────────────────────
@@ -106,17 +182,6 @@ public class PrefsManager {
         prefs.edit().putBoolean(KEY_FADING_JOURNAL, enabled).apply();
     }
 
-    // ── Voice ─────────────────────────────────────────────────────────────────
-
-    /** Off by default. User opts in from the home screen. */
-    public boolean isVoiceEnabled() {
-        return prefs.getBoolean(KEY_VOICE_ENABLED, false);
-    }
-
-    public void setVoiceEnabled(boolean enabled) {
-        prefs.edit().putBoolean(KEY_VOICE_ENABLED, enabled).apply();
-    }
-
     // ── Preloaded session key ─────────────────────────────────────────────────
 
     /**
@@ -135,6 +200,38 @@ public class PrefsManager {
 
     public void clearPreloadedSessionKey() {
         prefs.edit().remove(KEY_PRELOADED_SESSION).apply();
+    }
+
+    // ── Journal first-visit demo (ghost-stroke) ───────────────────────────────
+
+    /**
+     * The journal hides its drawing affordance — tap to type, drag to draw,
+     * no mode toggle. A new user has no way to know about the drag-to-draw
+     * behaviour. On first visit (if idle for a few seconds) we play a brief
+     * ghost-stroke demo to teach it diegetically. Shown once, ever.
+     */
+    public boolean hasShownJournalDemo() {
+        return prefs.getBoolean(KEY_JOURNAL_DEMO_SHOWN, false);
+    }
+
+    public void setJournalDemoShown() {
+        prefs.edit().putBoolean(KEY_JOURNAL_DEMO_SHOWN, true).apply();
+    }
+
+    // ── Journal first-visit text hint ─────────────────────────────────────────
+    //
+    // A separate, gentler teaching: the first time the user opens a new
+    // journal page, a single quiet line fades in at the bottom — "tap to
+    // write. drag to draw." — and stays for ~6 seconds before fading out
+    // forever. Stored under its own flag so the line and the ghost stroke
+    // can be tuned independently.
+
+    public boolean hasShownJournalHint() {
+        return prefs.getBoolean(KEY_JOURNAL_HINT_SHOWN, false);
+    }
+
+    public void setJournalHintShown() {
+        prefs.edit().putBoolean(KEY_JOURNAL_HINT_SHOWN, true).apply();
     }
 
     // ── Drawing palette ───────────────────────────────────────────────────────

@@ -23,7 +23,7 @@
         android:label="Qualia"
         android:roundIcon="@mipmap/qualia_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/Theme.Qualia">
 
         <activity android:name=".ui.SplashActivity"
             android:exported="true">
@@ -42,6 +42,17 @@
         <activity android:name=".ui.PastEntriesActivity"/>
         <activity android:name=".ui.EntryDetailActivity"/>
         <activity android:name=".ui.GraduationActivity"/>
+        <activity android:name=".ui.AboutActivity"/>
+
+        <!-- Post-graduation activities (v5). RoomActivity is the "sit"
+             room — a presence-only screen reachable after graduation
+             from the home screen. PastSessionsActivity is the "what was
+             said" archive — chronological list of the session text the
+             user has already sat with, faded by age. Neither writes to
+             session count, daily gate, or any other progression state;
+             they are read-only doors into the room the course built. -->
+        <activity android:name=".ui.RoomActivity"/>
+        <activity android:name=".ui.PastSessionsActivity"/>
 
         <!-- FileProvider for handing the system camera a writable URI when
              we capture a polaroid. The authority is qualified with the

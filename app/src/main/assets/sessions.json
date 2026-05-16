@@ -17,6 +17,7 @@
     "key": "session_002",
     "theme": "Attention",
     "perspective": "Nine Days",
+    "heavy": true,
     "closingLine": "Some of it didn't.",
     "lines": [
       { "text": "There are people on the street right now having the worst day of their life.", "isQuestion": false },
@@ -516,6 +517,7 @@
     "key": "session_030",
     "theme": "What You Don't Say",
     "perspective": "Nine Days - Interior",
+    "heavy": true,
     "engagement": "soft",
     "softOptions": ["yes", "no", "maybe"],
     "softPrompt": "Is there something you've been meaning to say to someone?",
@@ -931,6 +933,7 @@
     "key": "session_051",
     "theme": "The Difficult One",
     "perspective": "Eternal Sunshine",
+    "heavy": true,
     "engagement": "soft",
     "softOptions": ["yes", "it's complicated", "not really"],
     "softPrompt": "Is there a person in your life who is difficult but you still care about?",
@@ -953,6 +956,7 @@
     "key": "session_052",
     "theme": "Saying Goodbye",
     "perspective": "Eternal Sunshine",
+    "heavy": true,
     "engagement": "none",
     "closingLine": "But so did everything before it.",
     "lines": [
@@ -1016,6 +1020,7 @@
     "key": "session_055",
     "theme": "I Could Die Right Now",
     "perspective": "Eternal Sunshine",
+    "heavy": true,
     "engagement": "none",
     "closingLine": "You've had it. More than once, probably.",
     "lines": [
@@ -1036,6 +1041,7 @@
     "key": "session_056",
     "theme": "You Can't Change It",
     "perspective": "Desmond",
+    "heavy": true,
     "engagement": "soft",
     "softOptions": ["yes", "trying to", "not yet"],
     "softPrompt": "Is there something you're still trying to change that might just need accepting?",

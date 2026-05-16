@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Paper page surface.
+
+    Layered:
+      1. Solid warm cream base — sketchbook / Strathmore-mid paper. Not pure white
+         (too clinical) and not yellow (too aged); a quiet warm tone that pencil
+         and crayon read against the way they would on a real notebook page.
+      2. A very faint radial gradient lighter toward the upper-centre — the kind
+         of subtle warmth you get from light hitting paper unevenly.
+      3. A whisper-light vignette near the corners. Almost imperceptible, but
+         keeps the edges from feeling too clean.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 1. Cream base -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#F4ECDB" />
+        </shape>
+    </item>
+
+    <!-- 2. Subtle warm highlight, upper centre -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="700dp"
+                android:centerX="0.5"
+                android:centerY="0.40"
+                android:startColor="#26FFF6E2"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+    <!-- 3. Whisper vignette toward the edges -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="900dp"
+                android:centerX="0.5"
+                android:centerY="0.55"
+                android:startColor="#00000000"
+                android:endColor="#1A8A6E40" />
+        </shape>
+    </item>
+
+</layer-list>

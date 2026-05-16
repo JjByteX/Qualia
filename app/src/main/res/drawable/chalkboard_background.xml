@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Chalkboard surface.
+
+    Layered:
+      1. Solid slate base — slightly green-tinged dark, the canonical "blackboard"
+         shade that pulls the nostalgia of the original ChalkZone slate.
+      2. A very faint radial gradient lighter toward the upper-centre, suggesting
+         a board that has been used for years and has subtle wear in the middle.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#1B2620" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="640dp"
+                android:centerX="0.5"
+                android:centerY="0.42"
+                android:startColor="#142E3A2A"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+</layer-list>

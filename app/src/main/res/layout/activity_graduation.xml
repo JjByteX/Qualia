@@ -1,42 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D0D0D"
-    android:fadeScrollbars="true"
-    android:scrollbarStyle="insideOverlay">
+    android:background="#0D0D0D">
 
-    <LinearLayout
+    <!-- 70 sessions of accumulated dust, visible at full density at the top of
+         the letter. As the user scrolls toward "carry it with you", the field
+         slowly drains and the aurora rises across the upper third. The one
+         place in the app where the visual is allowed to be the climax.
+         (Anicca: everything that arose, releases.) -->
+    <com.example.qualia.ui.WeatherFlowView
+        android:id="@+id/weatherFlow"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="40dp"
-        android:paddingTop="80dp"
-        android:paddingBottom="120dp">
+        android:layout_height="match_parent"/>
 
-        <TextView
-            android:id="@+id/txtGraduation"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadeScrollbars="true"
+        android:scrollbarStyle="insideOverlay">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#F5F0E8"
-            android:textSize="16sp"
-            android:fontFamily="@font/lora"
-            android:lineSpacingExtra="12dp"
-            android:alpha="0"/>
+            android:orientation="vertical"
+            android:paddingHorizontal="40dp"
+            android:paddingTop="80dp"
+            android:paddingBottom="120dp">
 
-        <TextView
-            android:id="@+id/btnClose"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="carry it with you"
-            android:textColor="#A89880"
-            android:textSize="13sp"
-            android:fontFamily="@font/lora"
-            android:letterSpacing="0.15"
-            android:alpha="0"
-            android:layout_marginTop="60dp"/>
+            <TextView
+                android:id="@+id/txtGraduation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#F5F0E8"
+                android:textSize="16sp"
+                android:fontFamily="@font/lora"
+                android:lineSpacingExtra="12dp"
+                android:alpha="0"/>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/btnClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="carry it with you"
+                android:textColor="#A89880"
+                android:textSize="14sp"
+                android:fontFamily="@font/lora"
+                android:letterSpacing="0.2"
+                android:alpha="0"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:layout_marginTop="60dp"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
 
-</ScrollView>
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

@@ -16,51 +16,79 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Three breath lines, all anchored at the upper third of the screen
+         (vertical_bias=0.32). The lower two-thirds is left as breathing
+         room for the centred bloom — type and bloom no longer fight for
+         the same pixels.
+
+         Text rotates via alpha driven by the same animator as the field,
+         so the words rise and fall with the visual rather than running
+         on a mechanical Handler timeline.
+
+         Copy reverted to the original voice (user picked it on device for
+         clarity over the v5 "Slowly, in. / It gathers. / Let it go."):
+            "Breathe with the light."  (instruction; field gathers inward)
+            "It is still."             (observation; seed at centre)
+            "It is letting go."        (observation; warm bloom releases)
+         The animator-driven alpha is kept, so the exhale line still rises
+         and dissolves on the bloom envelope rather than dwelling past it. -->
     <TextView
         android:id="@+id/txtBreath1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Breathe in slowly."
+        android:text="Breathe with the light."
         android:textColor="#F5F0E8"
-        android:textSize="18sp"
+        android:textSize="22sp"
+        android:letterSpacing="0.02"
         android:fontFamily="@font/lora"
-        android:alpha="0"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@id/txtBreath2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/txtBreath2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Then a little more."
-        android:textColor="#F5F0E8"
-        android:textSize="18sp"
-        android:fontFamily="@font/lora"
+        android:gravity="center"
         android:alpha="0"
         android:layout_marginHorizontal="40dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.32"/>
+
+    <TextView
+        android:id="@+id/txtBreath2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="It is still."
+        android:textColor="#F5F0E8"
+        android:textSize="22sp"
+        android:letterSpacing="0.02"
+        android:fontFamily="@font/lora"
+        android:gravity="center"
+        android:alpha="0"
+        android:layout_marginHorizontal="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.32"/>
 
     <TextView
         android:id="@+id/txtBreath3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Now let it go."
+        android:text="It is letting go."
         android:textColor="#F5F0E8"
-        android:textSize="18sp"
+        android:textSize="22sp"
+        android:letterSpacing="0.02"
         android:fontFamily="@font/lora"
+        android:gravity="center"
         android:alpha="0"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/txtBreath2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.32"/>
 
+    <!-- "I'm ready" sits bottom-centre so the eye finishes the breath where
+         it started — at centre. The previous bottom-left placement broke
+         the radial symmetry of the bloom by pulling the eye sideways. -->
     <TextView
         android:id="@+id/btnReady"
         android:layout_width="wrap_content"
@@ -71,9 +99,12 @@
         android:letterSpacing="0.2"
         android:fontFamily="@font/lora"
         android:alpha="0"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="12dp"
         android:paddingBottom="60dp"
-        android:layout_marginStart="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

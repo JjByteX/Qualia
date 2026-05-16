@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Custom-colour picker.
+
+    Voice-matched to the rest of the app: cream paper background, Lora
+    typography, lowercase "cancel" / "done" CTAs in the warm-khaki primary
+    colour. The dialog inherits the journal's paper feel because that is
+    where it is opened from — the picker should feel like a small drawer
+    pulled out of the journal page, not a Material 3 system dialog.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/paper_background"
+    android:padding="24dp">
+
+    <!-- Picker. The custom view paints its own HSV ring + value square. -->
+    <com.example.qualia.ui.ColorPickerView
+        android:id="@+id/colorPicker"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Live preview swatch. The bar takes the chosen colour so the user
+         can sit with the hue at full bleed before committing. -->
+    <View
+        android:id="@+id/colorPreview"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="16dp"
+        android:background="#FF000000" />
+
+    <!-- Custom swatch row (optional quick-pick swatches) -->
+    <LinearLayout
+        android:id="@+id/custom_swatch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:gravity="center" />
+
+    <!-- Action row. Lowercase CTAs in Lora; primary "done" on the right
+         in the warm-khaki primary, "cancel" on the left in the same dim
+         grey used for secondary actions across the app. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <TextView
+            android:id="@+id/btnPickerCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cancel"
+            android:textColor="#6B6560"
+            android:textSize="14sp"
+            android:letterSpacing="0.2"
+            android:fontFamily="@font/lora"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <TextView
+            android:id="@+id/btnPickerDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="done"
+            android:textColor="#A89880"
+            android:textSize="14sp"
+            android:letterSpacing="0.2"
+            android:fontFamily="@font/lora"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+    </LinearLayout>
+
+</LinearLayout>

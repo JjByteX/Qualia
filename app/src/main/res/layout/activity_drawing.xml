@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Chalkboard drawing surface.
+
+    Background is the slate drawable; chalk strokes are rendered on top in a
+    lightly bumped palette of muted-but-visible colours that read as classroom
+    chalk against the dark green-black slate.
+
+    Toolbar / palette / brush size sit at the bottom. Toolbar labels use a
+    muted sage (#8DA89C) rather than the warm grey used elsewhere in the app,
+    because warm grey has too little contrast against the dark slate to
+    remain legible. The "save" CTA is the one place that joins the toolbar
+    back to the app-wide CTA colour (#A89880) so the finishing action reads
+    as a primary action everywhere the user encounters it.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/chalkboard_background">
+
+    <!-- Full-screen canvas -->
+    <com.example.qualia.ui.DrawingView
+        android:id="@+id/drawingView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/seekBrushSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Brush size seekbar -->
+    <SeekBar
+        android:id="@+id/seekBrushSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="8dp"
+        android:progressTint="#3B5048"
+        android:thumbTint="#A8C3B5"
+        app:layout_constraintBottom_toTopOf="@id/paletteRow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Colour palette row — chalk pigments, slightly more saturated than the
+         app's default palette so they read against the slate. -->
+    <LinearLayout
+        android:id="@+id/paletteRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingVertical="10dp"
+        app:layout_constraintBottom_toTopOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- chalk white -->
+        <View android:id="@+id/swatch0"
+            android:layout_width="28dp" android:layout_height="28dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="#FAF6EE"/>
+
+        <!-- chalk blush -->
+        <View android:id="@+id/swatch1"
+            android:layout_width="28dp" android:layout_height="28dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="#E8B4AA"/>
+
+        <!-- chalk sage / mint -->
+        <View android:id="@+id/swatch2"
+            android:layout_width="28dp" android:layout_height="28dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="#A6CFB6"/>
+
+        <!-- chalk sky -->
+        <View android:id="@+id/swatch3"
+            android:layout_width="28dp" android:layout_height="28dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="#92BBD9"/>
+
+        <!-- chalk dusk / lavender -->
+        <View android:id="@+id/swatch4"
+            android:layout_width="28dp" android:layout_height="28dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="#B6A4D4"/>
+
+        <!-- chalk sun (replaces the near-ink that wouldn't read on a dark slate) -->
+        <View android:id="@+id/swatch5"
+            android:layout_width="28dp" android:layout_height="28dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="#F0DC8C"/>
+
+    </LinearLayout>
+
+    <!-- Bottom toolbar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="32dp"
+        android:paddingBottom="32dp"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="←"
+            android:textColor="#8DA89C"
+            android:textSize="20sp"
+            android:fontFamily="@font/lora"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/btnUndo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="undo"
+            android:textColor="#8DA89C"
+            android:textSize="13sp"
+            android:letterSpacing="0.15"
+            android:fontFamily="@font/lora"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toEndOf="@id/btnBack"
+            app:layout_constraintEnd_toStartOf="@id/btnClear"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="clear"
+            android:textColor="#8DA89C"
+            android:textSize="13sp"
+            android:letterSpacing="0.15"
+            android:fontFamily="@font/lora"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toEndOf="@id/btnUndo"
+            app:layout_constraintEnd_toStartOf="@id/btnEraser"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/btnEraser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="eraser"
+            android:textColor="#8DA89C"
+            android:textSize="13sp"
+            android:letterSpacing="0.15"
+            android:fontFamily="@font/lora"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toEndOf="@id/btnClear"
+            app:layout_constraintEnd_toStartOf="@id/btnSave"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!-- Save — uses the app-wide CTA warm-khaki (#A89880), the same
+             colour used for every finishing-action CTA across the app.
+             Previously #D4C68A (warm yellow) which appeared nowhere else;
+             unifying with the rest of the app's CTAs is the stronger
+             cohesion. -->
+        <TextView
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="save"
+            android:textColor="#A89880"
+            android:textSize="14sp"
+            android:letterSpacing="0.2"
+            android:fontFamily="@font/lora"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

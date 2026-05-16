@@ -4,9 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D0D0D"
-    android:paddingHorizontal="40dp">
+    android:background="#0D0D0D">
 
+    <!-- Closing exhale: the same flow that opened the session, gently
+         drifting outward and dimming. The session has bookends. -->
+    <com.example.qualia.ui.WeatherFlowView
+        android:id="@+id/weatherFlow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Closing line lifted to upper third so it can breathe alone for a
+         beat after the session ends. The previous centred placement put it
+         directly above two stacked buttons, which made it feel like a menu
+         header rather than a closing thought. -->
     <TextView
         android:id="@+id/txtClosing"
         android:layout_width="0dp"
@@ -14,14 +28,60 @@
         android:text="There's space here&#10;if you want it."
         android:textColor="#F5F0E8"
         android:textSize="18sp"
+        android:gravity="center"
         android:fontFamily="@font/lora"
         android:lineSpacingExtra="10dp"
         android:alpha="0"
+        android:layout_marginHorizontal="40dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.32"/>
+
+    <!-- Crisis-resource line. Hidden on every session by default. ClosingActivity
+         only fades this in when the session that just played had `heavy: true`
+         in sessions.json — material that touches loss, regret, the unfixable.
+
+         The proposal's writing voice asks for "quiet, not absent." The line
+         is dimmer than the closing copy (#6B6560 vs #F5F0E8), smaller, and
+         placed beneath it so it never competes with the closing thought.
+         It is there for the user who needs it, invisible to the user who
+         doesn't, and never appears on a session that wasn't authored as
+         heavy. -->
+    <!--
+        v6 — this block now carries three tappable targets (NCMH 1553,
+        Hopeline PH 0917 558 4673, findahelpline.com). The text is built
+        programmatically in ClosingActivity#applyHeavyCrisisLine so each
+        segment has its own ClickableSpan. The `android:text` here is a
+        placeholder that the runtime overwrites; the layout-time text is
+        kept short to avoid a "flash of stale text" on slow devices. The
+        TextView is multi-line now (label, numbers, fallback URL).
+    -->
+    <TextView
+        android:id="@+id/txtHeavyCrisis"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="if today is heavy"
+        android:textColor="#6B6560"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:letterSpacing="0.06"
+        android:lineSpacingExtra="6dp"
+        android:fontFamily="@font/lora"
+        android:alpha="0"
+        android:visibility="gone"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:paddingVertical="6dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toBottomOf="@id/txtClosing"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- "write something" is the primary door — sits bottom-left, full
+         weight (#A89880), generous padding. Same anchor pattern as the
+         home screen's primary action. -->
     <TextView
         android:id="@+id/btnJournal"
         android:layout_width="wrap_content"
@@ -32,21 +92,34 @@
         android:letterSpacing="0.2"
         android:fontFamily="@font/lora"
         android:alpha="0"
-        android:paddingTop="40dp"
-        app:layout_constraintTop_toBottomOf="@id/txtClosing"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="60dp"
+        android:layout_marginStart="24dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <!-- "go home" is the quieter exit — moved to the opposite bottom
+         corner in much smaller, dimmer type so it stops competing with
+         "write something". Spatial hierarchy via distance, not just
+         colour. -->
     <TextView
         android:id="@+id/btnHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="go home"
-        android:textColor="#6B6560"
-        android:textSize="13sp"
+        android:textColor="#4F4A45"
+        android:textSize="11sp"
+        android:letterSpacing="0.2"
         android:fontFamily="@font/lora"
         android:alpha="0"
-        android:paddingTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/btnJournal"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="40dp"
+        android:layout_marginEnd="24dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

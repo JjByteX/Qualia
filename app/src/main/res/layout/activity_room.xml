@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    "The room." A post-graduation presence-only screen.
+
+    The proposal says: "the door stays open. you walk through when you want
+    to." Before this screen existed, that wasn't quite true — after session
+    seventy, the home screen lost its session button and offered no way
+    back to the practice. The cliff was clean but cold.
+
+    This screen is the open door. There is no counter, no progression, no
+    audio, no timer. The particle field that carried every session is the
+    whole screen. The user sits with it for as long as they want. They
+    leave when they leave.
+
+    Notes:
+      - Reachable only after graduation. Never increments session count,
+        never touches the daily gate. The user cannot "play" this; they
+        can only be in it.
+      - A single low-contrast "leave" exit fades in after ~20 seconds, so
+        the screen is not a trap. The Android back button always works.
+      - The flow runs at half density (same as Home) — quieter than a
+        session, calmer than nothing. Same room, no event.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0D0D">
+
+    <com.example.qualia.ui.WeatherFlowView
+        android:id="@+id/weatherFlow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Quiet exit. Sits in the same bottom-right spot the home screen uses
+         for the about-sheet tap target, so the eye already knows where to
+         look. Fades in after a long delay; the user is meant to sit with
+         the field first. -->
+    <TextView
+        android:id="@+id/btnLeave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="leave"
+        android:textColor="#4F4A45"
+        android:textSize="11sp"
+        android:letterSpacing="0.2"
+        android:fontFamily="@font/lora"
+        android:alpha="0"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="40dp"
+        android:layout_marginEnd="24dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    About sheet, v5.
+
+    Previously a single screen of constraint-stacked TextViews. Rewritten to
+    lift the actual writing voice of the project proposal so the philosophy
+    of the app shows up in the place where new users go to ask "what is
+    this?" Three new things in this layout:
+
+      • The "small clearing in that noise" paragraph is the lead — the
+        proposal's own framing of what the app is, lightly trimmed.
+      • The "door stays open. you walk through when you want to." line
+        moves into the what-it-isn't block, where it earns its weight.
+      • A new "who we are / why we built this" block sits between roots
+        and the crisis line — three short lines, no résumés. Fills the
+        gap the previous version had at the bottom.
+
+    Because the content now exceeds a phone screen, the body is wrapped
+    in a ScrollView. The crisis line and the back exit are pinned to the
+    bottom so they don't disappear when the user scrolls; the body
+    scrolls under them.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0D0D">
+
+    <!-- The same flow view, at the lowest density. The about sheet is part
+         of the same room as home — just with the lights turned down a
+         little. Continuity, not a new mode. -->
+    <com.example.qualia.ui.WeatherFlowView
+        android:id="@+id/weatherFlow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- ── Pinned footer: crisis line + back button ────────────────────────
+         Anchored to the bottom of the screen so they are always reachable
+         no matter how far the body has been scrolled. -->
+    <TextView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="back"
+        android:textColor="#A89880"
+        android:textSize="14sp"
+        android:letterSpacing="0.2"
+        android:fontFamily="@font/lora"
+        android:alpha="0"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="60dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!--
+        v6 — the crisis line surfaces three tappable targets (NCMH 1553,
+        Hopeline PH 0917 558 4673, findahelpline.com). The text is built
+        programmatically in AboutActivity#applyCrisisLine, same approach
+        as ClosingActivity. The android:text here is the lead label only.
+    -->
+    <TextView
+        android:id="@+id/txtCrisis"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="If you're in crisis, this isn't the right place."
+        android:textColor="#8A8480"
+        android:textSize="13sp"
+        android:lineSpacingExtra="6dp"
+        android:fontFamily="@font/lora"
+        android:gravity="start"
+        android:alpha="0"
+        android:padding="16dp"
+        android:layout_marginHorizontal="24dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toTopOf="@id/btnBack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- ── Scrollable body ─────────────────────────────────────────────── -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fadeScrollbars="true"
+        android:scrollbarStyle="insideOverlay"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/txtCrisis"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="40dp"
+            android:paddingTop="80dp"
+            android:paddingBottom="32dp">
+
+            <!-- What Qualia is. The proposal's own opening voice, lightly
+                 trimmed. "A small clearing in that noise" is the line the
+                 whole app organises itself around — surfacing it here puts
+                 the app's philosophy in the place new users go looking for
+                 it. -->
+            <TextView
+                android:id="@+id/txtAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="A small clearing in the noise.\n\nSeven minutes. A breath. Some words that ask nothing of you. A journal that holds what you bring to it and releases it slowly, the way memory does.\n\nThe app does not tell you what to find inside the clearing. It just makes the clearing."
+                android:textColor="#F5F0E8"
+                android:textSize="17sp"
+                android:lineSpacingExtra="6dp"
+                android:fontFamily="@font/lora"
+                android:alpha="0"/>
+
+            <!-- What it isn't. The "door stays open" sentence moves into
+                 this block so the line lands where it earns its weight —
+                 right after the negative-space framing, as the resolution
+                 of the absence. -->
+            <TextView
+                android:id="@+id/txtNot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No streaks. No reminders. No notifications pulling you back.\n\nThe door stays open. You walk through when you want to."
+                android:textColor="#A89880"
+                android:textSize="14sp"
+                android:lineSpacingExtra="6dp"
+                android:fontFamily="@font/lora"
+                android:alpha="0"
+                android:paddingTop="32dp"/>
+
+            <!-- The research it draws on. Plain English, not an authority
+                 claim — the app is informed by, not certified by. -->
+            <TextView
+                android:id="@+id/txtRoots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Informed by research on slow breath (Lehrer &amp; Steffen on resonant breathing; Porges&apos; polyvagal theory; Spiegel et al., 2023, on cyclic sighing), expressive writing (Pennebaker), and warm-light environments (Knez)."
+                android:textColor="#6B6560"
+                android:textSize="13sp"
+                android:lineSpacingExtra="6dp"
+                android:fontFamily="@font/lora"
+                android:alpha="0"
+                android:paddingTop="28dp"/>
+
+            <!-- Who we are / why we built this. New in v5. Three short
+                 lines, no résumés, no roles. The previous version of the
+                 sheet went directly from "research" to "crisis line",
+                 which made the app feel authored by nobody. This block
+                 grounds the app in a human reason. -->
+            <TextView
+                android:id="@+id/txtWho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="We built this because we kept losing the thread back to ourselves.\n\nThe noise gets louder every year.\n\nWe wanted a small clearing. This is the one we made."
+                android:textColor="#A89880"
+                android:textSize="14sp"
+                android:lineSpacingExtra="6dp"
+                android:fontFamily="@font/lora"
+                android:alpha="0"
+                android:paddingTop="28dp"
+                android:paddingBottom="24dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

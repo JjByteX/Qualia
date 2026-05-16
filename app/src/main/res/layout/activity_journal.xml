@@ -36,6 +36,7 @@
         android:paddingHorizontal="20dp"
         android:paddingTop="24dp"
         android:paddingBottom="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -46,24 +47,33 @@
         android:text="past"
         android:textColor="#6B6560"
         android:textSize="13sp"
+        android:letterSpacing="0.2"
         android:fontFamily="@font/lora"
         android:paddingHorizontal="20dp"
         android:paddingTop="24dp"
         android:paddingBottom="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Save — the same warm-khaki primary colour used for every other
+         finishing-action CTA across the app (begin session, I'm ready,
+         write something, back, carry it with you). The previous sage-green
+         #5C7A4F carried a faint commit semantic, but unified colour across
+         CTAs is the stronger cohesion. -->
     <TextView
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="save"
-        android:textColor="#5C7A4F"
+        android:textColor="#A89880"
         android:textSize="14sp"
+        android:letterSpacing="0.2"
         android:fontFamily="@font/lora"
         android:paddingHorizontal="16dp"
         android:paddingTop="24dp"
         android:paddingBottom="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnPastEntries"/>
 
@@ -146,7 +156,8 @@
             android:textColor="#6B6560"
             android:textSize="20sp"
             android:fontFamily="@font/lora"
-            android:paddingVertical="4dp"/>
+            android:paddingVertical="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
 
         <View android:layout_width="16dp" android:layout_height="1dp"
               android:layout_marginVertical="8dp"
@@ -205,7 +216,8 @@
             android:textSize="11sp"
             android:fontFamily="@font/lora"
             android:letterSpacing="0.15"
-            android:paddingVertical="6dp"/>
+            android:paddingVertical="6dp"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
 
         <TextView
             android:id="@+id/btnClear"
@@ -216,13 +228,44 @@
             android:textSize="11sp"
             android:fontFamily="@font/lora"
             android:letterSpacing="0.15"
-            android:paddingVertical="6dp"/>
+            android:paddingVertical="6dp"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
 
     </LinearLayout>
 
     <!-- ── Fading toggle (bottom-left, very quiet) ───────────────────────
          Now governs both text fading AND drawing fading on entry-detail
          playback. Same toggle, broader meaning. -->
+
+    <!-- ── First-visit gesture hint (v5) ────────────────────────────────
+         Sits just above the bottom-centre row, very low contrast. On the
+         user's first ever fresh journal page (and never again) one short
+         line fades in for ~6 seconds: "tap to write. drag to draw." The
+         page has both behaviours hidden behind the same surface, and
+         until now there was no acknowledgement that it had both. The
+         existing ghost-stroke demo teaches the drawing half; this line
+         names both halves so the user knows the page is more than what
+         they tapped. Forever-hidden once shown (see prefs.setJournalHintShown).
+         JournalActivity sets visibility=VISIBLE and runs the fade-in/out
+         animation only when prefs.hasShownJournalHint() returns false on
+         a freshly-opened entry (editId == 0). -->
+    <TextView
+        android:id="@+id/txtJournalHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tap to write. drag to draw."
+        android:textColor="#A89880"
+        android:textSize="11sp"
+        android:letterSpacing="0.15"
+        android:fontFamily="@font/lora"
+        android:alpha="0"
+        android:visibility="gone"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/palette"/>
 
     <TextView
         android:id="@+id/btnFade"
@@ -234,7 +277,9 @@
         android:fontFamily="@font/lora"
         android:letterSpacing="0.15"
         android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
         android:paddingBottom="20dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
